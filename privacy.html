@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>枕书 · PillowBook · まくらと本</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/icon.png">
+<script>
+(function () {
+  var l = (navigator.language || "zh-Hans").toLowerCase();
+  var target = "zh-Hans";
+  if (l.indexOf("ja") === 0) target = "ja";
+  else if (l.indexOf("en") === 0) target = "en";
+  else if (l.indexOf("zh") === 0 && /hant|tw|hk|mo/.test(l)) target = "zh-Hant";
+  else if (l.indexOf("zh") !== 0) target = "en";
+  location.replace(target + "/privacy.html");
+})();
+</script>
+</head>
+<body>
+<main>
+<h1>枕书 · PillowBook · まくらと本</h1>
+<p class="lead"><a href="zh-Hans/privacy.html">简体中文</a> · <a href="zh-Hant/privacy.html">繁體中文</a> · <a href="en/privacy.html">English</a> · <a href="ja/privacy.html">日本語</a></p>
+</main>
+</body>
+</html>

@@ -317,7 +317,19 @@ ROOT_INDEX = """<!DOCTYPE html>
 """
 
 
+def redirector(name):
+    """Root-level privacy.html / support.html: one language-neutral address
+    (for App Store Connect and links elsewhere) that sends the browser to its
+    own language, with plain links as the no-script fallback."""
+    links = " · ".join(f'<a href="{l}/{name}.html">{T[l]["lang_name"]}</a>' for l in LANGS)
+    return ROOT_INDEX.replace('location.replace(target + "/index.html");', f'location.replace(target + "/{name}.html");') \
+        .replace('<a href="zh-Hans/index.html">简体中文</a> · <a href="zh-Hant/index.html">繁體中文</a> · <a href="en/index.html">English</a> · <a href="ja/index.html">日本語</a>', links)
+
+
 def main():
+    for name in ("privacy", "support"):
+        with open(os.path.join(ROOT, f"{name}.html"), "w", encoding="utf-8") as f:
+            f.write(redirector(name))
     for lang in LANGS:
         d = os.path.join(ROOT, lang)
         os.makedirs(d, exist_ok=True)
@@ -326,7 +338,7 @@ def main():
                 f.write(fn(lang))
     with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
         f.write(ROOT_INDEX)
-    print("built", len(LANGS) * 3 + 1, "pages")
+    print("built", len(LANGS) * 3 + 3, "pages")
 
 
 if __name__ == "__main__":
