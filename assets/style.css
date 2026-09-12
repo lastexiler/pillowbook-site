@@ -1,0 +1,97 @@
+/* 枕书 site — the app's warm neumorphic material, light only.
+   Base #EFEBE5, ink #2C2A27, light shadow white up-left, taupe shadow
+   (#BDB2A4) down-right, accent blue only in glyphs/text — same tokens as
+   NeuDesign.swift. */
+:root {
+  --base: #efebe5;
+  --ink: #2c2a27;
+  --muted: #6f6a63;
+  --faint: #9a938a;
+  --accent: #3c8bf5;
+  --light: rgba(255, 255, 255, .95);
+  --shade: rgba(189, 178, 164, .55);
+  --rule: rgba(189, 178, 164, .45);
+  --max: 760px;
+  --radius: 20px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; color-scheme: light; }
+body {
+  margin: 0; background: var(--base); color: var(--ink);
+  font: 16px/1.8 -apple-system, BlinkMacSystemFont, "PingFang SC", "PingFang TC", "Hiragino Sans", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* raised surface: the material itself, lifted */
+.raised {
+  background: var(--base); border-radius: var(--radius);
+  box-shadow: -6px -6px 14px var(--light), 6px 6px 14px var(--shade);
+}
+
+header.top {
+  max-width: var(--max); margin: 0 auto; padding: 22px 20px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 600; font-size: 18px; }
+.brand:hover { text-decoration: none; }
+.brand img {
+  width: 44px; height: 44px; border-radius: 11px;
+  box-shadow: -3px -3px 8px var(--light), 3px 3px 8px var(--shade);
+}
+nav.pages, nav.langs { display: flex; gap: 8px; flex-wrap: wrap; }
+nav.pages a, nav.langs a {
+  display: inline-block; padding: 6px 14px; border-radius: 999px; font-size: 14px;
+  color: var(--muted); background: var(--base);
+  box-shadow: -3px -3px 8px var(--light), 3px 3px 8px var(--shade);
+  transition: box-shadow .15s ease, color .15s ease;
+}
+nav.pages a:hover, nav.langs a:hover { text-decoration: none; color: var(--ink); }
+nav.pages a.current, nav.langs a.current {
+  color: var(--accent); font-weight: 600;
+  box-shadow: inset 3px 3px 6px var(--shade), inset -3px -3px 6px var(--light);
+}
+nav.langs a { font-size: 13px; padding: 5px 12px; }
+nav.pages { width: 100%; }
+
+main { max-width: var(--max); margin: 0 auto; padding: 28px 20px 56px; }
+h1 { font-size: 30px; line-height: 1.3; margin: 10px 0 4px; letter-spacing: .01em; }
+h2 { font-size: 20px; margin: 40px 0 12px; }
+h3 { font-size: 16px; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 18px; }
+.note { color: var(--faint); font-size: 14px; }
+
+.card { padding: 20px 22px; margin: 16px 0; }
+.card p:last-child { margin-bottom: 0; }
+.summary { padding: 22px 24px; margin: 22px 0 6px; border-left: 4px solid var(--accent); }
+.summary p { margin: 0; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 18px; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 18px; } }
+.grid .card { margin: 0; }
+.grid .card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+hr { border: 0; height: 1px; background: var(--rule); margin: 36px 0; }
+
+/* privacy table */
+.table-wrap { overflow-x: auto; padding: 4px; margin: 14px -4px 8px; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 560px; font-size: 14.5px; line-height: 1.6;
+  background: var(--base); border-radius: var(--radius); overflow: hidden;
+  box-shadow: -6px -6px 14px var(--light), 6px 6px 14px var(--shade); }
+caption { caption-side: top; text-align: left; color: var(--muted); font-size: 14px; padding: 0 4px 8px; }
+th, td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; color: var(--ink); background: rgba(189, 178, 164, .18); }
+tr:last-child td { border-bottom: 0; }
+td:last-child, th:last-child { white-space: nowrap; }
+
+/* support FAQ */
+dl { margin: 0; }
+dl dt { font-weight: 600; margin-top: 18px; }
+dl dd { margin: 4px 0 0; color: var(--muted); }
+
+ul { padding-left: 1.3em; margin: 0 0 14px; }
+li { margin: 4px 0; }
+
+footer { max-width: var(--max); margin: 0 auto; padding: 0 20px 44px; color: var(--faint); font-size: 13px; }
+footer a { color: var(--muted); }
