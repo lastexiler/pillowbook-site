@@ -1,8 +1,8 @@
 # PillowBook Help and Support
 
-Last updated: September 13, 2026  
+Last updated: October 12, 2026  
 App: PillowBook  
-System requirement: iPhone running iOS 18.0 or later
+System requirement: iPhone, iPhone Duo, or iPad running iOS 18.0 or later
 
 PillowBook is a local ebook reader made by an independent developer. It does not operate a bookstore or sell, download, or distribute book content.
 
@@ -28,9 +28,9 @@ Import only files you have the right to access and use. PillowBook does not bypa
 
 ## Importing books
 
-### Import on iPhone
+### Import on iPhone or iPad
 
-Use PillowBook’s import option to select a TXT or EPUB from the Files app. You can also use the system Share sheet on a supported file in another app and select PillowBook. After a successful import, PillowBook stores the files needed for reading on the device.
+Use PillowBook’s import option to select a TXT or EPUB from the Files app. You can also use the system Share sheet on a supported file in another app and select PillowBook. After a successful import, PillowBook stores the files needed for reading, plus a copy of the original file, on the device. The original file is used to repair the book automatically if its reading files are damaged; you can see how much space originals take under Settings > Storage.
 
 ### Wi-Fi Transfer
 
@@ -62,6 +62,10 @@ PillowBook attempts to detect common text encodings but cannot guarantee every l
 
 Typical causes include an incomplete download, invalid EPUB structure, encrypted book content, or DRM. Download a complete, DRM-free EPUB again from a lawful source. PillowBook cannot remove DRM applied by a store or publisher.
 
+### A book shows “This book’s files are incomplete”
+
+This book’s files on the device are missing or damaged, and there is no kept original file to repair it automatically (usually a book imported before version 1.1). Import the same file again to repair it; reading progress, bookmarks, and notes are kept. You can also check your whole library under Settings > Library Check.
+
 ### The library is full
 
 The free version holds up to five books. Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase.
@@ -70,15 +74,33 @@ The free version holds up to five books. Archived books and books in the Vault a
 
 ### Chapters are split wrong
 
-In the reader: Contents → “Redetect” in the top right, and pick a heading pattern that fits.
+In the reader: Contents → “Redetect” in the top right, and pick a heading pattern that fits, or use automatic detection. Both TXT and EPUB books can be redetected; for an EPUB, choose “Use the Book's Contents” at any time to return to the book’s original contents.
 
 ### How do I turn on vertical reading?
 
 In the reader, top right → Reading Settings → Text Direction. This applies to the current book only.
 
+### Underlines, notes, and the Notebook
+
+Press and hold to select text, then choose “Underline” or “Note” from the menu that appears. A note can hold text and one photo. “Notebook” in the reader menu lists all of the book’s bookmarks, underlines, and notes; you can view them by date or by chapter, and create a share image.
+
+### Translation asks for a language pack
+
+Translate a Selection uses the translation built into iOS and works on the device. The first time you translate a language, tap “Download Language Pack” and follow the system prompt. The download continues in the background, and the translation appears automatically when it finishes. iOS determines which languages can be translated.
+
 ### Read-aloud is silent or lacks my language
 
-Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spoken Content › Voices, download a voice for your language, then choose it on PillowBook's listening screen.
+Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spoken Content › Voices, download a voice for your language; once the download finishes, return to PillowBook and you can choose it on the listening screen.
+
+## Home Screen widgets and covers
+
+### Adding a Home Screen widget
+
+Touch and hold an empty area of the Home Screen → “Edit” in the top-left corner → “Add Widget”, then search for “PillowBook”. “Recently Read” comes in small and medium sizes, and “Today's Reading” is small. Widgets show only the books you are reading; books in the Vault and archived books never appear. If a widget asks you to open PillowBook first, open the App once and then return to the Home Screen.
+
+### Using your own photo as a cover
+
+In the library, press and hold a book → “Change Cover”, tap “+” in the “Custom” tile, and choose a photo. After cropping, you can drag the title and adjust its size and alignment.
 
 ## Purchases, restoration, and refunds
 
@@ -104,7 +126,7 @@ Despite its name, the Vault is not an encrypted storage container: it does not s
 
 ## Deleting data
 
-- Deleting a book removes its content and the reading position, per-book statistics, bookmarks, and related narration cache managed for that book. The aggregate daily reading-activity log remains until its rolling retention period expires or the App is deleted.
+- Deleting a book removes its content (including the original file) and the reading position, per-book statistics, bookmarks, underlines, notes, note images, custom cover, and related narration cache managed for that book. The aggregate daily reading-activity log remains until its rolling retention period expires or the App is deleted.
 - Settings > Storage > Clear Narration Cache removes only reproducible audio.
 - A selected reading background can be replaced or cleared in the background settings.
 - To remove all PillowBook data from the current device, choose Delete App in iOS, not only Offload App.

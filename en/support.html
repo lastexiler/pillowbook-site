@@ -11,11 +11,11 @@
 <header class="top">
   <a class="brand" href="index.html"><img src="../assets/icon.png" alt=""> PillowBook</a>
   <nav class="langs"><a href="../zh-Hans/support.html">简体中文</a> <a href="../zh-Hant/support.html">繁體中文</a> <a href="../en/support.html" class="current">English</a> <a href="../ja/support.html">日本語</a></nav>
-  <nav class="pages"><a href="index.html">About</a> <a href="privacy.html">Privacy Policy</a> <a href="support.html" class="current">Support</a></nav>
+  <nav class="pages"><a href="index.html">About</a> <a href="releases.html">What’s New</a> <a href="privacy.html">Privacy Policy</a> <a href="support.html" class="current">Support</a></nav>
 </header>
 <main>
 <h1>PillowBook Help and Support</h1>
-<p>Last updated: September 13, 2026<br>App: PillowBook<br>System requirement: iPhone running iOS 18.0 or later</p>
+<p>Last updated: October 12, 2026<br>App: PillowBook<br>System requirement: iPhone, iPhone Duo, or iPad running iOS 18.0 or later</p>
 <p>PillowBook is a local ebook reader made by an independent developer. It does not operate a bookstore or sell, download, or distribute book content.</p>
 <h2>Contact support</h2>
 <ul><li>Support email: <strong>pillowbook2026@gmail.com</strong></li><li>Suggested subject: <code>PillowBook Feedback</code></li></ul>
@@ -26,8 +26,8 @@
 <ul><li>TXT: up to 120 MB per file;</li><li>EPUB: up to 400 MB per file;</li><li>PDF, MOBI, AZW/AZW3, and other formats are not supported; and</li><li>EPUB files with digital-rights-management (DRM), encrypted book content, or invalid structure are not supported. Standard EPUB font obfuscation does not necessarily prevent import.</li></ul>
 <p>Import only files you have the right to access and use. PillowBook does not bypass DRM or remove protection from Kindle, Apple Books, or another store.</p>
 <h2>Importing books</h2>
-<h3>Import on iPhone</h3>
-<p>Use PillowBook’s import option to select a TXT or EPUB from the Files app. You can also use the system Share sheet on a supported file in another app and select PillowBook. After a successful import, PillowBook stores the files needed for reading on the device.</p>
+<h3>Import on iPhone or iPad</h3>
+<p>Use PillowBook’s import option to select a TXT or EPUB from the Files app. You can also use the system Share sheet on a supported file in another app and select PillowBook. After a successful import, PillowBook stores the files needed for reading, plus a copy of the original file, on the device. The original file is used to repair the book automatically if its reading files are damaged; you can see how much space originals take under Settings &gt; Storage.</p>
 <h3>Wi-Fi Transfer</h3>
 <ol><li>Connect the iPhone and your computer or other device to the same trusted private Wi-Fi network.</li><li>Open Wi-Fi Transfer in PillowBook and keep that screen open.</li><li>Enter the address displayed on the iPhone into the other device’s browser address bar.</li><li>Select one TXT or EPUB, enter the four-digit pairing code shown on the iPhone, and transfer it.</li><li>Confirm that the book appears in the library, then close the transfer screen when finished.</li></ol>
 <p>Wi-Fi Transfer sends the file directly between devices on the local network; it does not use a Developer server. The current connection uses ordinary HTTP, not TLS encryption, and the four-digit code cannot prevent interception or repeated attempts on a hostile network. Do not transfer sensitive files on public, hotel, workplace guest, or other untrusted Wi-Fi, and do not share the address or code with anyone else.</p>
@@ -39,15 +39,26 @@
 <p>PillowBook attempts to detect common text encodings but cannot guarantee every legacy or uncommon encoding. Use a trusted text editor to save the original file as UTF-8 plain text, then import it again. Renaming a Word, PDF, or webpage file with a <code>.txt</code> extension does not convert it into plain text.</p>
 <h3>EPUB does not open</h3>
 <p>Typical causes include an incomplete download, invalid EPUB structure, encrypted book content, or DRM. Download a complete, DRM-free EPUB again from a lawful source. PillowBook cannot remove DRM applied by a store or publisher.</p>
+<h3>A book shows “This book’s files are incomplete”</h3>
+<p>This book’s files on the device are missing or damaged, and there is no kept original file to repair it automatically (usually a book imported before version 1.1). Import the same file again to repair it; reading progress, bookmarks, and notes are kept. You can also check your whole library under Settings &gt; Library Check.</p>
 <h3>The library is full</h3>
 <p>The free version holds up to five books. Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase.</p>
 <h2>Common reading questions</h2>
 <h3>Chapters are split wrong</h3>
-<p>In the reader: Contents → “Redetect” in the top right, and pick a heading pattern that fits.</p>
+<p>In the reader: Contents → “Redetect” in the top right, and pick a heading pattern that fits, or use automatic detection. Both TXT and EPUB books can be redetected; for an EPUB, choose “Use the Book's Contents” at any time to return to the book’s original contents.</p>
 <h3>How do I turn on vertical reading?</h3>
 <p>In the reader, top right → Reading Settings → Text Direction. This applies to the current book only.</p>
+<h3>Underlines, notes, and the Notebook</h3>
+<p>Press and hold to select text, then choose “Underline” or “Note” from the menu that appears. A note can hold text and one photo. “Notebook” in the reader menu lists all of the book’s bookmarks, underlines, and notes; you can view them by date or by chapter, and create a share image.</p>
+<h3>Translation asks for a language pack</h3>
+<p>Translate a Selection uses the translation built into iOS and works on the device. The first time you translate a language, tap “Download Language Pack” and follow the system prompt. The download continues in the background, and the translation appears automatically when it finishes. iOS determines which languages can be translated.</p>
 <h3>Read-aloud is silent or lacks my language</h3>
-<p>Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spoken Content › Voices, download a voice for your language, then choose it on PillowBook's listening screen.</p>
+<p>Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spoken Content › Voices, download a voice for your language; once the download finishes, return to PillowBook and you can choose it on the listening screen.</p>
+<h2>Home Screen widgets and covers</h2>
+<h3>Adding a Home Screen widget</h3>
+<p>Touch and hold an empty area of the Home Screen → “Edit” in the top-left corner → “Add Widget”, then search for “PillowBook”. “Recently Read” comes in small and medium sizes, and “Today's Reading” is small. Widgets show only the books you are reading; books in the Vault and archived books never appear. If a widget asks you to open PillowBook first, open the App once and then return to the Home Screen.</p>
+<h3>Using your own photo as a cover</h3>
+<p>In the library, press and hold a book → “Change Cover”, tap “+” in the “Custom” tile, and choose a photo. After cropping, you can drag the title and adjust its size and alignment.</p>
 <h2>Purchases, restoration, and refunds</h2>
 <p>Apple’s App Store processes all purchases. Apple and your App Store region determine price, taxes, payment, billing, and refunds.</p>
 <ul><li><strong>Unlimited Library</strong> is a non-consumable, one-time purchase that removes the five-book limit. On a device using the same Apple Account, select Restore Purchase in the App.</li><li><strong>One Coffee</strong> is an optional, repeatable tip. It unlocks no feature or content. As a consumable, it cannot be restored. The displayed tip count is stored only on the current device and may disappear after reinstalling the App or changing devices.</li><li><strong>Redeem Code</strong> uses Apple’s Offer Code interface. Apple verifies whether a code is valid and what entitlement it grants.</li></ul>
@@ -59,7 +70,7 @@
 <p>The Vault uses Face ID, Touch ID, or the device passcode to restrict access through PillowBook’s interface. iOS performs authentication; PillowBook does not receive biometric data.</p>
 <p>Despite its name, the Vault is not an encrypted storage container: it does not separately encrypt book files. Imported books and generated narration audio are in the App’s Documents directory and may be visible through Files &gt; On My iPhone &gt; PillowBook, Finder file sharing, device migration, or backups to someone who can access the unlocked device. Protect sensitive material with a strong device passcode and secure backup settings.</p>
 <h2>Deleting data</h2>
-<ul><li>Deleting a book removes its content and the reading position, per-book statistics, bookmarks, and related narration cache managed for that book. The aggregate daily reading-activity log remains until its rolling retention period expires or the App is deleted.</li><li>Settings &gt; Storage &gt; Clear Narration Cache removes only reproducible audio.</li><li>A selected reading background can be replaced or cleared in the background settings.</li><li>To remove all PillowBook data from the current device, choose Delete App in iOS, not only Offload App.</li><li>Manage iCloud or computer backups and files you copied elsewhere separately in those services or locations.</li></ul>
+<ul><li>Deleting a book removes its content (including the original file) and the reading position, per-book statistics, bookmarks, underlines, notes, note images, custom cover, and related narration cache managed for that book. The aggregate daily reading-activity log remains until its rolling retention period expires or the App is deleted.</li><li>Settings &gt; Storage &gt; Clear Narration Cache removes only reproducible audio.</li><li>A selected reading background can be replaced or cleared in the background settings.</li><li>To remove all PillowBook data from the current device, choose Delete App in iOS, not only Offload App.</li><li>Manage iCloud or computer backups and files you copied elsewhere separately in those services or locations.</li></ul>
 <p>PillowBook has no Developer-operated account or cloud library. The Developer therefore cannot remotely view, recover, or delete books and reading history stored only on your device.</p>
 <h2>App Store reviews</h2>
 <p>You are welcome to share your experience in an App Store review, but do not post an email address, order information, or other personal details publicly. Use the support email above when a particular issue needs investigation.</p>
