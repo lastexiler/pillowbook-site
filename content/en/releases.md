@@ -34,7 +34,9 @@ Coming soon
 - **Faster In-Book Search**: Searching a chapter with many matches is noticeably faster.
 - **Wide-Screen Layout**: On iPad in landscape and on the inner display of iPhone Duo, Recently Read on the left of the library shows two columns of large covers, and menus and cards fit the window size.
 - **Consistent Design**: Buttons, cards and pop-ups share the same rounded corners and margins, and match the new system look on iOS 18 as well.
-- **EPUB Titles**: EPUBs titled with a placeholder such as “Unknown” or “Untitled” now use the file name as the title.
+- **EPUB Titles**: EPUBs keep the title written in the book; the file name is used only when the title is empty or a placeholder such as “Unknown” or “Untitled”.
+- **Selecting Across Pages**: In Scroll mode and in the two-page view on iPad in landscape, a long-press selection can be dragged across the seam between pages.
+- **EPUB Illustration Sizes**: Illustrations appear at the size the book specifies, so small icons and avatars no longer fill a whole line, and icons inside a sentence stay in the text. Books already imported need to be imported again.
 - **Steady Interface Layout**: Interface text no longer follows the system’s Larger Text setting, so layouts always stay tidy; you can still choose any text size on the reading page.
 - **Vault Prompts**: Prompts now mention Face ID, Touch ID or your passcode, depending on the device.
 
@@ -54,6 +56,8 @@ Coming soon
 - Fixed text briefly turning blurry during Page Curl.
 - Fixed the text being shifted out of place during Page Curl on iOS 18.
 - Fixed chat bubbles and bordered paragraphs being cut off at the bottom of the page.
+- Fixed chat bubbles that span two pages being split at the seam between pages in Scroll mode.
+- Fixed long-press text selection occasionally freezing for a few seconds.
 - Fixed reading progress and bookmarks moving to the wrong place after redetecting chapters in a txt book.
 - Fixed in-book search sometimes staying stuck on “Searching…”.
 - Fixed a crash when opening Contents with VoiceOver turned on in iOS 27.
