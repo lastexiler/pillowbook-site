@@ -29,7 +29,7 @@ Coming soon
 - **Read Aloud Keeps Up**: In page-turning modes, if you turn to another chapter, read-aloud brings the page back to where it’s reading.
 - **Smoother Start to Listening**: Speech processing now happens entirely in the background, so the interface no longer stalls when you tap Listen.
 - **New Voices Right Away**: Voices you download or delete in iOS Settings appear as soon as you return to PillowBook, without reopening the app.
-- **Progress for Long Chapters**: Opening a very long chapter shows “Laying out” with its progress, instead of leaving the previous chapter on screen.
+- **Progress for Long Chapters**: Opening a very long chapter shows “Laying out” with its progress, instead of leaving the previous chapter on screen; a page turn tapped meanwhile is kept and made once the chapter is ready.
 - **Better Chapter Detection**: Chapter headings that are just a number, such as “1.” or “三、”, are now recognised.
 - **Faster In-Book Search**: Searching a chapter with many matches is noticeably faster.
 - **Wide-Screen Layout**: On iPad in landscape and on the inner display of iPhone Duo, Recently Read on the left of the library shows two columns of large covers, and menus and cards fit the window size.
