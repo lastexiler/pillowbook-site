@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>好友已接受你的枕書邀請</title>
-<meta name="description" content="貼上這串回執碼，你的書庫也多放書。">
+<meta name="description" content="在枕書中貼上這串回執碼，你的書庫也能多放書。">
 <meta property="og:title" content="好友已接受你的枕書邀請">
-<meta property="og:description" content="貼上這串回執碼，你的書庫也多放書。">
+<meta property="og:description" content="在枕書中貼上這串回執碼，你的書庫也能多放書。">
 <meta property="og:image" content="../assets/icon.png">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="../assets/icon.png">
@@ -16,12 +16,12 @@
 <div class="code-card raised">
   <img class="code-icon" src="../assets/icon.png" alt="">
   <h1>好友已接受你的枕書邀請</h1>
-  <p class="lead">貼上這串回執碼，你的書庫也多放書。</p>
-  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>複製回執碼</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">複製</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">2</span><div class="step-body"><p>打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」裡貼上</p></div></li></ol>
+  <p class="lead">在枕書中貼上這串回執碼，你的書庫也能多放書。</p>
+  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>複製回執碼</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">複製</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">2</span><div class="step-body"><p>打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」中貼上</p></div></li></ol>
   <div id="missing" hidden><p class="lead">這個連結不完整，請好友重新傳送。</p></div>
 </div>
 
-<p class="note">這串碼只在連結裡，不會傳送到任何伺服器。</p>
+<p class="note">這串碼只存在於連結中，不會上傳到任何伺服器。</p>
 </main>
 <script>
 (function () {
@@ -33,8 +33,14 @@
     document.getElementById("missing").hidden = false;
     return;
   }
-  var shown = code.match(/.{1,4}/g).join("-");
-  document.getElementById("code").textContent = shown;
+  var groups = code.match(/.{1,4}/g), shown = groups.join("-");
+  // A break opportunity after every hyphen, never inside a group: some
+  // browsers (WeChat's, 2026-10-17) will not break at the hyphen by themselves.
+  var well = document.getElementById("code");
+  groups.forEach(function (g, i) {
+    well.appendChild(document.createTextNode(g + (i < groups.length - 1 ? "-" : "")));
+    if (i < groups.length - 1) well.appendChild(document.createElement("wbr"));
+  });
   var button = document.getElementById("copy"), note = document.getElementById("copy-note");
   function done() { button.textContent = "已複製"; setTimeout(function () { button.textContent = "複製"; }, 1600); }
   function fallback() {
@@ -44,7 +50,7 @@
     var copied = false;
     try { copied = document.execCommand("copy"); } catch (e) {}
     document.body.removeChild(area);
-    if (copied) done(); else { note.textContent = "請長按上面的碼手動複製"; note.hidden = false; }
+    if (copied) done(); else { note.textContent = "請長按上方的碼手動複製"; note.hidden = false; }
   }
   button.addEventListener("click", function () {
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(shown).then(done, fallback);

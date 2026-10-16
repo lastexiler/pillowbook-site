@@ -199,13 +199,13 @@ CODE_PAGES = {}
 CODE_PAGES["zh-Hans"] = dict(
     invite=dict(
         title="好友邀请你用枕书读书",
-        lead="装好枕书后粘贴这串邀请码，你的书库多放 10 本。",
+        lead="装好枕书后粘贴这串邀请码，你的书库可以多放 10 本。",
         steps=["下载枕书", "复制邀请码", "打开枕书，在「设置 › 我的 › 填写邀请码 / 回执码」里粘贴"],
         length=26,
     ),
     receipt=dict(
         title="好友已接受你的枕书邀请",
-        lead="粘贴这串回执码，你的书库也多放书。",
+        lead="在枕书里粘贴这串回执码，你的书库也能多放书。",
         steps=["复制回执码", "打开枕书，在「设置 › 我的 › 填写邀请码 / 回执码」里粘贴"],
         length=42,
     ),
@@ -213,65 +213,65 @@ CODE_PAGES["zh-Hans"] = dict(
     app_store="在 App Store 下载",
     missing="这个链接不完整，请让好友重新发送。",
     wechat="在微信里打不开 App Store 时，点右上角「···」，选「在默认浏览器中打开」。",
-    privacy="这串码只在链接里，不会发送到任何服务器。",
+    privacy="这串码只存在于链接中，不会上传到任何服务器。",
 )
 
 CODE_PAGES["zh-Hant"] = dict(
     invite=dict(
         title="好友邀請你用枕書讀書",
-        lead="裝好枕書後貼上這串邀請碼，你的書庫多放 10 本。",
-        steps=["下載枕書", "複製邀請碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」裡貼上"],
+        lead="裝好枕書後貼上這串邀請碼，你的書庫可以多放 10 本。",
+        steps=["下載枕書", "複製邀請碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」中貼上"],
         length=26,
     ),
     receipt=dict(
         title="好友已接受你的枕書邀請",
-        lead="貼上這串回執碼，你的書庫也多放書。",
-        steps=["複製回執碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」裡貼上"],
+        lead="在枕書中貼上這串回執碼，你的書庫也能多放書。",
+        steps=["複製回執碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」中貼上"],
         length=42,
     ),
-    copy="複製", copied="已複製", copy_failed="請長按上面的碼手動複製",
+    copy="複製", copied="已複製", copy_failed="請長按上方的碼手動複製",
     app_store="在 App Store 下載",
     missing="這個連結不完整，請好友重新傳送。",
-    wechat="在微信裡打不開 App Store 時，點右上角「···」，選「在預設瀏覽器中打開」。",
-    privacy="這串碼只在連結裡，不會傳送到任何伺服器。",
+    wechat="在微信中無法開啟 App Store 時，請點右上角「···」，選擇「在預設瀏覽器中開啟」。",
+    privacy="這串碼只存在於連結中，不會上傳到任何伺服器。",
 )
 CODE_PAGES["en"] = dict(
     invite=dict(
         title="A friend invited you to read with PillowBook",
-        lead="Install PillowBook and paste this invite code: your library holds 10 more books.",
+        lead="Install PillowBook and paste this invite code to make room for 10 more books in your library.",
         steps=["Download PillowBook", "Copy the invite code", "Open PillowBook and paste it in Settings › Me › Enter Invite / Receipt Code"],
         length=26,
     ),
     receipt=dict(
         title="Your friend accepted your PillowBook invite",
-        lead="Paste this receipt code and your library holds more books too.",
+        lead="Paste this receipt code into PillowBook to make room for more books in your library too.",
         steps=["Copy the receipt code", "Open PillowBook and paste it in Settings › Me › Enter Invite / Receipt Code"],
         length=42,
     ),
-    copy="Copy", copied="Copied", copy_failed="Press and hold the code above to copy it",
+    copy="Copy", copied="Copied", copy_failed="Press and hold the code above to copy it.",
     app_store="Download on the App Store",
     missing="This link is incomplete. Ask your friend to send it again.",
-    wechat="If the App Store won’t open inside WeChat, tap ··· at the top right and open the page in your browser.",
-    privacy="The code lives only in the link and is never sent to any server.",
+    wechat="If the App Store won’t open in WeChat, tap ··· at the top right and choose to open the page in your browser.",
+    privacy="The code exists only in this link and is never sent to any server.",
 )
 CODE_PAGES["ja"] = dict(
     invite=dict(
         title="友だちから「まくらと本」への招待が届きました",
-        lead="まくらと本を入れてこの招待コードを貼り付けると、本棚に 10 冊多く入ります。",
-        steps=["まくらと本をダウンロード", "招待コードをコピー", "まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
+        lead="まくらと本をインストールしてこの招待コードを貼り付けると、本棚に入れられる本が 10 冊増えます。",
+        steps=["まくらと本をダウンロード", "招待コードをコピー", "まくらと本を開いて、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
         length=26,
     ),
     receipt=dict(
-        title="友だちが「まくらと本」の招待を受けました",
-        lead="この受領コードを貼り付けると、あなたの本棚にも多く入ります。",
-        steps=["受領コードをコピー", "まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
+        title="友だちが「まくらと本」の招待を受けてくれました",
+        lead="この受領コードをまくらと本に貼り付けると、あなたの本棚に入れられる本も増えます。",
+        steps=["受領コードをコピー", "まくらと本を開いて、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
         length=42,
     ),
     copy="コピー", copied="コピーしました", copy_failed="上のコードを長押ししてコピーしてください",
     app_store="App Store でダウンロード",
     missing="このリンクは不完全です。友だちにもう一度送ってもらってください。",
-    wechat="WeChat の中で App Store が開かないときは、右上の「···」からブラウザで開いてください。",
-    privacy="コードはリンクの中だけにあり、どのサーバーにも送られません。",
+    wechat="WeChat で App Store が開けないときは、右上の「···」からブラウザで開いてください。",
+    privacy="コードはこのリンクの中にだけあり、サーバーに送信されることはありません。",
 )
 
 
@@ -299,8 +299,14 @@ def code_page(lang, kind):
     document.getElementById("missing").hidden = false;
     return;
   }}
-  var shown = code.match(/.{{1,4}}/g).join("-");
-  document.getElementById("code").textContent = shown;
+  var groups = code.match(/.{{1,4}}/g), shown = groups.join("-");
+  // A break opportunity after every hyphen, never inside a group: some
+  // browsers (WeChat's, 2026-10-17) will not break at the hyphen by themselves.
+  var well = document.getElementById("code");
+  groups.forEach(function (g, i) {{
+    well.appendChild(document.createTextNode(g + (i < groups.length - 1 ? "-" : "")));
+    if (i < groups.length - 1) well.appendChild(document.createElement("wbr"));
+  }});
   var button = document.getElementById("copy"), note = document.getElementById("copy-note");
   function done() {{ button.textContent = {json.dumps(c["copied"], ensure_ascii=False)}; setTimeout(function () {{ button.textContent = {json.dumps(c["copy"], ensure_ascii=False)}; }}, 1600); }}
   function fallback() {{

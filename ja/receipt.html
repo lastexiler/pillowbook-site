@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>友だちが「まくらと本」の招待を受けました</title>
-<meta name="description" content="この受領コードを貼り付けると、あなたの本棚にも多く入ります。">
-<meta property="og:title" content="友だちが「まくらと本」の招待を受けました">
-<meta property="og:description" content="この受領コードを貼り付けると、あなたの本棚にも多く入ります。">
+<title>友だちが「まくらと本」の招待を受けてくれました</title>
+<meta name="description" content="この受領コードをまくらと本に貼り付けると、あなたの本棚に入れられる本も増えます。">
+<meta property="og:title" content="友だちが「まくらと本」の招待を受けてくれました">
+<meta property="og:description" content="この受領コードをまくらと本に貼り付けると、あなたの本棚に入れられる本も増えます。">
 <meta property="og:image" content="../assets/icon.png">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="../assets/icon.png">
@@ -15,13 +15,13 @@
 <main>
 <div class="code-card raised">
   <img class="code-icon" src="../assets/icon.png" alt="">
-  <h1>友だちが「まくらと本」の招待を受けました</h1>
-  <p class="lead">この受領コードを貼り付けると、あなたの本棚にも多く入ります。</p>
-  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>受領コードをコピー</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">コピー</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">2</span><div class="step-body"><p>まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け</p></div></li></ol>
+  <h1>友だちが「まくらと本」の招待を受けてくれました</h1>
+  <p class="lead">この受領コードをまくらと本に貼り付けると、あなたの本棚に入れられる本も増えます。</p>
+  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>受領コードをコピー</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">コピー</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">2</span><div class="step-body"><p>まくらと本を開いて、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け</p></div></li></ol>
   <div id="missing" hidden><p class="lead">このリンクは不完全です。友だちにもう一度送ってもらってください。</p></div>
 </div>
 
-<p class="note">コードはリンクの中だけにあり、どのサーバーにも送られません。</p>
+<p class="note">コードはこのリンクの中にだけあり、サーバーに送信されることはありません。</p>
 </main>
 <script>
 (function () {
@@ -33,8 +33,14 @@
     document.getElementById("missing").hidden = false;
     return;
   }
-  var shown = code.match(/.{1,4}/g).join("-");
-  document.getElementById("code").textContent = shown;
+  var groups = code.match(/.{1,4}/g), shown = groups.join("-");
+  // A break opportunity after every hyphen, never inside a group: some
+  // browsers (WeChat's, 2026-10-17) will not break at the hyphen by themselves.
+  var well = document.getElementById("code");
+  groups.forEach(function (g, i) {
+    well.appendChild(document.createTextNode(g + (i < groups.length - 1 ? "-" : "")));
+    if (i < groups.length - 1) well.appendChild(document.createElement("wbr"));
+  });
   var button = document.getElementById("copy"), note = document.getElementById("copy-note");
   function done() { button.textContent = "コピーしました"; setTimeout(function () { button.textContent = "コピー"; }, 1600); }
   function fallback() {

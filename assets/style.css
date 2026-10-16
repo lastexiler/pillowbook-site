@@ -139,8 +139,9 @@ footer a { color: var(--muted); }
 .step-body p { margin: 2px 0 10px; }
 .code-well { padding: 12px 14px; border-radius: 14px; margin: 0 0 12px;
   font: 500 15px/1.6 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .02em;
-  /* breaks only after a hyphen, never inside a group of four */
-  word-break: keep-all; overflow-wrap: normal; -webkit-user-select: all; user-select: all;
+  /* breaks at the <wbr> after each hyphen, never inside a group of four;
+     anywhere only as a last resort, so the code never runs past the edge */
+  word-break: keep-all; overflow-wrap: anywhere; -webkit-user-select: all; user-select: all;
   box-shadow: inset 3px 3px 7px var(--shade), inset -3px -3px 7px var(--light); }
 .pill { display: inline-block; padding: 9px 22px; border: 0; border-radius: 999px; cursor: pointer;
   font: 600 15px/1.4 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; color: var(--accent);
