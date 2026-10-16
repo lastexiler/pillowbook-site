@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A friend invited you to read with PillowBook</title>
+<meta name="description" content="Install PillowBook and paste this invite code: your library holds 10 more books.">
+<meta property="og:title" content="A friend invited you to read with PillowBook">
+<meta property="og:description" content="Install PillowBook and paste this invite code: your library holds 10 more books.">
+<meta property="og:image" content="../assets/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/icon.png">
+</head>
+<body class="code-page">
+<main>
+<div class="code-card raised">
+  <img class="code-icon" src="../assets/icon.png" alt="">
+  <h1>A friend invited you to read with PillowBook</h1>
+  <p class="lead">Install PillowBook and paste this invite code: your library holds 10 more books.</p>
+  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>Download PillowBook</p><a class="pill store" href="https://apps.apple.com/app/id6813302746">Download on the App Store</a></div></li><li><span class="step-n">2</span><div class="step-body"><p>Copy the invite code</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">Copy</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">3</span><div class="step-body"><p>Open PillowBook and paste it in Settings › Me › Enter Invite / Receipt Code</p></div></li></ol>
+  <div id="missing" hidden><p class="lead">This link is incomplete. Ask your friend to send it again.</p><a class="pill store" href="https://apps.apple.com/app/id6813302746">Download on the App Store</a></div>
+</div>
+<p class="note">If the App Store won’t open inside WeChat, tap ··· at the top right and open the page in your browser.</p>
+<p class="note">The code lives only in the link and is never sent to any server.</p>
+</main>
+<script>
+(function () {
+  var raw = decodeURIComponent((location.hash || "").slice(1));
+  var code = raw.toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var ok = code.length === 26;
+  if (!ok) {
+    document.getElementById("steps").hidden = true;
+    document.getElementById("missing").hidden = false;
+    return;
+  }
+  var shown = code.match(/.{1,4}/g).join("-");
+  document.getElementById("code").textContent = shown;
+  var button = document.getElementById("copy"), note = document.getElementById("copy-note");
+  function done() { button.textContent = "Copied"; setTimeout(function () { button.textContent = "Copy"; }, 1600); }
+  function fallback() {
+    var area = document.createElement("textarea");
+    area.value = shown; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+    document.body.appendChild(area); area.select(); area.setSelectionRange(0, shown.length);
+    var copied = false;
+    try { copied = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(area);
+    if (copied) done(); else { note.textContent = "Press and hold the code above to copy it"; note.hidden = false; }
+  }
+  button.addEventListener("click", function () {
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(shown).then(done, fallback);
+    else fallback();
+  });
+})();
+</script>
+</body>
+</html>

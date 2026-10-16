@@ -120,3 +120,32 @@ footer a { color: var(--muted); }
 .grid h3 .new { display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: 999px;
   font-size: 11.5px; line-height: 20px; font-weight: 600; vertical-align: 2px;
   color: var(--accent); box-shadow: inset 2px 2px 4px var(--shade), inset -2px -2px 4px var(--light); }
+
+/* invite / receipt link page: one card, numbered steps, the code in a well */
+.code-page main { max-width: 480px; padding-top: 36px; }
+.code-card { padding: 28px 24px 22px; text-align: center; }
+/* the icon file is the blue tile on an opaque light square (tile ≈ 7%–93%):
+   clip to the tile, then lift it like the app's raised controls */
+.code-icon { width: 80px; height: 80px; clip-path: inset(7.5% round 18%);
+  filter: drop-shadow(3px 3px 5px var(--shade)); }
+.code-card h1 { font-size: 22px; margin: 16px 0 6px; }
+.code-card .lead { font-size: 15px; margin-bottom: 8px; }
+.steps { list-style: none; padding: 0; margin: 18px 0 0; text-align: left; }
+.steps li { display: flex; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule); }
+.step-n { flex: none; width: 28px; height: 28px; border-radius: 50%; text-align: center;
+  font: 600 14px/28px -apple-system, sans-serif; color: var(--accent);
+  box-shadow: inset 2px 2px 4px var(--shade), inset -2px -2px 4px var(--light); }
+.step-body { flex: 1; min-width: 0; }
+.step-body p { margin: 2px 0 10px; }
+.code-well { padding: 12px 14px; border-radius: 14px; margin: 0 0 12px;
+  font: 500 15px/1.6 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .02em;
+  /* breaks only after a hyphen, never inside a group of four */
+  word-break: keep-all; overflow-wrap: normal; -webkit-user-select: all; user-select: all;
+  box-shadow: inset 3px 3px 7px var(--shade), inset -3px -3px 7px var(--light); }
+.pill { display: inline-block; padding: 9px 22px; border: 0; border-radius: 999px; cursor: pointer;
+  font: 600 15px/1.4 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; color: var(--accent);
+  background: var(--base); box-shadow: -3px -3px 8px var(--light), 3px 3px 8px var(--shade); }
+.pill:hover { text-decoration: none; }
+.pill:active { box-shadow: inset 3px 3px 6px var(--shade), inset -3px -3px 6px var(--light); }
+.code-page main > .note { text-align: center; margin: 14px 8px 0; font-size: 13px; }
+.code-page #copy-note { margin: 8px 0 0; font-size: 13px; }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>好友已接受你的枕书邀请</title>
+<meta name="description" content="粘贴这串回执码，你的书库也多放书。">
+<meta property="og:title" content="好友已接受你的枕书邀请">
+<meta property="og:description" content="粘贴这串回执码，你的书库也多放书。">
+<meta property="og:image" content="../assets/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/icon.png">
+</head>
+<body class="code-page">
+<main>
+<div class="code-card raised">
+  <img class="code-icon" src="../assets/icon.png" alt="">
+  <h1>好友已接受你的枕书邀请</h1>
+  <p class="lead">粘贴这串回执码，你的书库也多放书。</p>
+  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>复制回执码</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">复制</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">2</span><div class="step-body"><p>打开枕书，在「设置 › 我的 › 填写邀请码 / 回执码」里粘贴</p></div></li></ol>
+  <div id="missing" hidden><p class="lead">这个链接不完整，请让好友重新发送。</p></div>
+</div>
+
+<p class="note">这串码只在链接里，不会发送到任何服务器。</p>
+</main>
+<script>
+(function () {
+  var raw = decodeURIComponent((location.hash || "").slice(1));
+  var code = raw.toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var ok = code.length === 42;
+  if (!ok) {
+    document.getElementById("steps").hidden = true;
+    document.getElementById("missing").hidden = false;
+    return;
+  }
+  var shown = code.match(/.{1,4}/g).join("-");
+  document.getElementById("code").textContent = shown;
+  var button = document.getElementById("copy"), note = document.getElementById("copy-note");
+  function done() { button.textContent = "已复制"; setTimeout(function () { button.textContent = "复制"; }, 1600); }
+  function fallback() {
+    var area = document.createElement("textarea");
+    area.value = shown; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+    document.body.appendChild(area); area.select(); area.setSelectionRange(0, shown.length);
+    var copied = false;
+    try { copied = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(area);
+    if (copied) done(); else { note.textContent = "请长按上面的码手动复制"; note.hidden = false; }
+  }
+  button.addEventListener("click", function () {
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(shown).then(done, fallback);
+    else fallback();
+  });
+})();
+</script>
+</body>
+</html>

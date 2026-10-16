@@ -10,7 +10,7 @@ Everything here describes what the app actually does. When the app changes
 here and rebuild — the privacy page in particular must never promise less
 than the app does.
 """
-import os, re, html
+import os, re, html, json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ["zh-Hans", "zh-Hant", "en", "ja"]
@@ -181,6 +181,172 @@ T["ja"] = dict(
     home_purchases="無料版の本棚には 5 冊まで入ります。「本棚無制限」は一度きりの購入で永久に有効、同じ Apple アカウントの端末すべてで使えます。「コーヒー一杯分の応援」は応援で、何度でも可能、機能の解除はありません。購入はすべて App Store が処理します。",
     footer="まくらと本 · Vincent が個人で開発",
 )
+
+
+# The page a shared invite / receipt link opens (2026-10-17, app design doc
+# §10a). WeChat takes no plain text from the share sheet, so the app shares a
+# link instead: <lang>/invite.html#CODE or <lang>/receipt.html#CODE. The code
+# rides in the fragment, which the browser never sends to any server (nor do
+# link-preview crawlers see it); the page reads it with script and shows it
+# with a copy button. Nothing is checked here beyond the length — the app
+# checks the signature when the code is pasted. Two pages, not one, so the
+# link card in a chat (title and description, read by a crawler that cannot
+# see the fragment) says the right thing. Languages without `code_pages`
+# strings get no such pages.
+APP_STORE = "https://apps.apple.com/app/id6813302746"
+
+CODE_PAGES = {}
+CODE_PAGES["zh-Hans"] = dict(
+    invite=dict(
+        title="好友邀请你用枕书读书",
+        lead="装好枕书后粘贴这串邀请码，你的书库多放 10 本。",
+        steps=["下载枕书", "复制邀请码", "打开枕书，在「设置 › 我的 › 填写邀请码 / 回执码」里粘贴"],
+        length=26,
+    ),
+    receipt=dict(
+        title="好友已接受你的枕书邀请",
+        lead="粘贴这串回执码，你的书库也多放书。",
+        steps=["复制回执码", "打开枕书，在「设置 › 我的 › 填写邀请码 / 回执码」里粘贴"],
+        length=42,
+    ),
+    copy="复制", copied="已复制", copy_failed="请长按上面的码手动复制",
+    app_store="在 App Store 下载",
+    missing="这个链接不完整，请让好友重新发送。",
+    wechat="在微信里打不开 App Store 时，点右上角「···」，选「在默认浏览器中打开」。",
+    privacy="这串码只在链接里，不会发送到任何服务器。",
+)
+
+CODE_PAGES["zh-Hant"] = dict(
+    invite=dict(
+        title="好友邀請你用枕書讀書",
+        lead="裝好枕書後貼上這串邀請碼，你的書庫多放 10 本。",
+        steps=["下載枕書", "複製邀請碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」裡貼上"],
+        length=26,
+    ),
+    receipt=dict(
+        title="好友已接受你的枕書邀請",
+        lead="貼上這串回執碼，你的書庫也多放書。",
+        steps=["複製回執碼", "打開枕書，在「設定 › 我的 › 填寫邀請碼 / 回執碼」裡貼上"],
+        length=42,
+    ),
+    copy="複製", copied="已複製", copy_failed="請長按上面的碼手動複製",
+    app_store="在 App Store 下載",
+    missing="這個連結不完整，請好友重新傳送。",
+    wechat="在微信裡打不開 App Store 時，點右上角「···」，選「在預設瀏覽器中打開」。",
+    privacy="這串碼只在連結裡，不會傳送到任何伺服器。",
+)
+CODE_PAGES["en"] = dict(
+    invite=dict(
+        title="A friend invited you to read with PillowBook",
+        lead="Install PillowBook and paste this invite code: your library holds 10 more books.",
+        steps=["Download PillowBook", "Copy the invite code", "Open PillowBook and paste it in Settings › Me › Enter Invite / Receipt Code"],
+        length=26,
+    ),
+    receipt=dict(
+        title="Your friend accepted your PillowBook invite",
+        lead="Paste this receipt code and your library holds more books too.",
+        steps=["Copy the receipt code", "Open PillowBook and paste it in Settings › Me › Enter Invite / Receipt Code"],
+        length=42,
+    ),
+    copy="Copy", copied="Copied", copy_failed="Press and hold the code above to copy it",
+    app_store="Download on the App Store",
+    missing="This link is incomplete. Ask your friend to send it again.",
+    wechat="If the App Store won’t open inside WeChat, tap ··· at the top right and open the page in your browser.",
+    privacy="The code lives only in the link and is never sent to any server.",
+)
+CODE_PAGES["ja"] = dict(
+    invite=dict(
+        title="友だちから「まくらと本」への招待が届きました",
+        lead="まくらと本を入れてこの招待コードを貼り付けると、本棚に 10 冊多く入ります。",
+        steps=["まくらと本をダウンロード", "招待コードをコピー", "まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
+        length=26,
+    ),
+    receipt=dict(
+        title="友だちが「まくらと本」の招待を受けました",
+        lead="この受領コードを貼り付けると、あなたの本棚にも多く入ります。",
+        steps=["受領コードをコピー", "まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け"],
+        length=42,
+    ),
+    copy="コピー", copied="コピーしました", copy_failed="上のコードを長押ししてコピーしてください",
+    app_store="App Store でダウンロード",
+    missing="このリンクは不完全です。友だちにもう一度送ってもらってください。",
+    wechat="WeChat の中で App Store が開かないときは、右上の「···」からブラウザで開いてください。",
+    privacy="コードはリンクの中だけにあり、どのサーバーにも送られません。",
+)
+
+
+def code_page(lang, kind):
+    t, c = T[lang], CODE_PAGES[lang]
+    k = c[kind]
+    download = kind == "invite"
+    steps = []
+    for i, step in enumerate(k["steps"], 1):
+        extra = ""
+        if download and i == 1:
+            extra = f'<a class="pill store" href="{APP_STORE}">{c["app_store"]}</a>'
+        if (download and i == 2) or (not download and i == 1):
+            extra = ('<div class="code-well" id="code" translate="no"></div>'
+                     f'<button class="pill" id="copy" type="button">{c["copy"]}</button>'
+                     '<p class="note" id="copy-note" hidden></p>')
+        steps.append(f'<li><span class="step-n">{i}</span><div class="step-body"><p>{step}</p>{extra}</div></li>')
+    script = f"""<script>
+(function () {{
+  var raw = decodeURIComponent((location.hash || "").slice(1));
+  var code = raw.toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var ok = code.length === {k["length"]};
+  if (!ok) {{
+    document.getElementById("steps").hidden = true;
+    document.getElementById("missing").hidden = false;
+    return;
+  }}
+  var shown = code.match(/.{{1,4}}/g).join("-");
+  document.getElementById("code").textContent = shown;
+  var button = document.getElementById("copy"), note = document.getElementById("copy-note");
+  function done() {{ button.textContent = {json.dumps(c["copied"], ensure_ascii=False)}; setTimeout(function () {{ button.textContent = {json.dumps(c["copy"], ensure_ascii=False)}; }}, 1600); }}
+  function fallback() {{
+    var area = document.createElement("textarea");
+    area.value = shown; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+    document.body.appendChild(area); area.select(); area.setSelectionRange(0, shown.length);
+    var copied = false;
+    try {{ copied = document.execCommand("copy"); }} catch (e) {{}}
+    document.body.removeChild(area);
+    if (copied) done(); else {{ note.textContent = {json.dumps(c["copy_failed"], ensure_ascii=False)}; note.hidden = false; }}
+  }}
+  button.addEventListener("click", function () {{
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(shown).then(done, fallback);
+    else fallback();
+  }});
+}})();
+</script>"""
+    return f"""<!DOCTYPE html>
+<html lang="{t['html_lang']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(k['title'])}</title>
+<meta name="description" content="{html.escape(k['lead'])}">
+<meta property="og:title" content="{html.escape(k['title'])}">
+<meta property="og:description" content="{html.escape(k['lead'])}">
+<meta property="og:image" content="../assets/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/icon.png">
+</head>
+<body class="code-page">
+<main>
+<div class="code-card raised">
+  <img class="code-icon" src="../assets/icon.png" alt="">
+  <h1>{html.escape(k['title'])}</h1>
+  <p class="lead">{html.escape(k['lead'])}</p>
+  <ol class="steps" id="steps">{''.join(steps)}</ol>
+  <div id="missing" hidden><p class="lead">{html.escape(c['missing'])}</p>{f'<a class="pill store" href="{APP_STORE}">{c["app_store"]}</a>' if download else ''}</div>
+</div>
+{f'<p class="note">{html.escape(c["wechat"])}</p>' if download else ''}
+<p class="note">{html.escape(c['privacy'])}</p>
+</main>
+{script}
+</body>
+</html>
+"""
 
 
 def has_page(lang, name):
@@ -416,6 +582,10 @@ def main():
                 continue
             with open(os.path.join(d, f"{name}.html"), "w", encoding="utf-8") as f:
                 f.write(fn(lang))
+            built += 1
+        for kind in ("invite", "receipt") if lang in CODE_PAGES else ():
+            with open(os.path.join(d, f"{kind}.html"), "w", encoding="utf-8") as f:
+                f.write(code_page(lang, kind))
             built += 1
     with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
         f.write(ROOT_INDEX)

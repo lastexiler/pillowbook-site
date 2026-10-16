@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>友だちから「まくらと本」への招待が届きました</title>
+<meta name="description" content="まくらと本を入れてこの招待コードを貼り付けると、本棚に 10 冊多く入ります。">
+<meta property="og:title" content="友だちから「まくらと本」への招待が届きました">
+<meta property="og:description" content="まくらと本を入れてこの招待コードを貼り付けると、本棚に 10 冊多く入ります。">
+<meta property="og:image" content="../assets/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/icon.png">
+</head>
+<body class="code-page">
+<main>
+<div class="code-card raised">
+  <img class="code-icon" src="../assets/icon.png" alt="">
+  <h1>友だちから「まくらと本」への招待が届きました</h1>
+  <p class="lead">まくらと本を入れてこの招待コードを貼り付けると、本棚に 10 冊多く入ります。</p>
+  <ol class="steps" id="steps"><li><span class="step-n">1</span><div class="step-body"><p>まくらと本をダウンロード</p><a class="pill store" href="https://apps.apple.com/app/id6813302746">App Store でダウンロード</a></div></li><li><span class="step-n">2</span><div class="step-body"><p>招待コードをコピー</p><div class="code-well" id="code" translate="no"></div><button class="pill" id="copy" type="button">コピー</button><p class="note" id="copy-note" hidden></p></div></li><li><span class="step-n">3</span><div class="step-body"><p>まくらと本を開き、「設定 › マイページ › 招待コード / 受領コードを入力」に貼り付け</p></div></li></ol>
+  <div id="missing" hidden><p class="lead">このリンクは不完全です。友だちにもう一度送ってもらってください。</p><a class="pill store" href="https://apps.apple.com/app/id6813302746">App Store でダウンロード</a></div>
+</div>
+<p class="note">WeChat の中で App Store が開かないときは、右上の「···」からブラウザで開いてください。</p>
+<p class="note">コードはリンクの中だけにあり、どのサーバーにも送られません。</p>
+</main>
+<script>
+(function () {
+  var raw = decodeURIComponent((location.hash || "").slice(1));
+  var code = raw.toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var ok = code.length === 26;
+  if (!ok) {
+    document.getElementById("steps").hidden = true;
+    document.getElementById("missing").hidden = false;
+    return;
+  }
+  var shown = code.match(/.{1,4}/g).join("-");
+  document.getElementById("code").textContent = shown;
+  var button = document.getElementById("copy"), note = document.getElementById("copy-note");
+  function done() { button.textContent = "コピーしました"; setTimeout(function () { button.textContent = "コピー"; }, 1600); }
+  function fallback() {
+    var area = document.createElement("textarea");
+    area.value = shown; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+    document.body.appendChild(area); area.select(); area.setSelectionRange(0, shown.length);
+    var copied = false;
+    try { copied = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(area);
+    if (copied) done(); else { note.textContent = "上のコードを長押ししてコピーしてください"; note.hidden = false; }
+  }
+  button.addEventListener("click", function () {
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(shown).then(done, fallback);
+    else fallback();
+  });
+})();
+</script>
+</body>
+</html>
