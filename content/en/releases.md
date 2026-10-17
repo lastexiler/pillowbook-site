@@ -13,9 +13,12 @@ Coming soon
 - **Home Screen Widgets**: Put the books you’re reading and how long you’ve read today on your Home Screen, and tap to go straight back into a book.
 - **Custom Covers**: Make a book’s cover from your own photo, and decide where the title goes, how big it is and how it’s aligned.
 - **Made for iPhone Duo**: Held sideways, the inner display fills the screen with two pages side by side, like an open book; the library, menus and cards are all laid out afresh for the inner display.
+- **Me**: A new Me page at the top of Settings, with a moving undersea picture, your avatar and name, a reading level that rises with your reading time (36 levels, from Firefly to Dawn), and this week’s Reading Log.
 
 ### New
 
+- **Invite Friends**: Send a friend your invite link, and their library gets room for 10 more books once they accept; when they send back their receipt code, yours grows too (+10, +5 and +5 books for your first three friends).
+- **Reading Poster**: Turn your reading level, reading time and this week’s Reading Log into a poster to share with friends, right from the Me page.
 - **Cover Sharing**: Turn a book’s cover into an image you can share.
 - **Custom Theme Colour**: Pick a paper colour you like from the colour wheel, which only offers colours that keep the text easy to read.
 - **Redetect EPUB Chapters**: EPUBs with contents that are too coarse can have their chapters redetected from headings, and you can switch back to the book’s own contents at any time.

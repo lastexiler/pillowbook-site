@@ -68,7 +68,7 @@ This book’s files on the device are missing or damaged, and there is no kept o
 
 ### The library is full
 
-The free version holds up to five books. Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase.
+The free version holds up to five books. Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase. You can also invite friends from Settings › Me, for up to 30 more books.
 
 ## Common reading questions
 
@@ -91,6 +91,16 @@ Translate a Selection uses the translation built into iOS and works on the devic
 ### Read-aloud is silent or lacks my language
 
 Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spoken Content › Voices, download a voice for your language; once the download finishes, return to PillowBook and you can choose it on the listening screen.
+
+## Me and inviting friends
+
+### Inviting friends
+
+In Settings › Me, tap Invite and send the link to a friend. Once they have PillowBook, they paste the invite code in Settings › Me › Enter Invite / Receipt Code and their library holds 10 more books; then they send you their receipt code, and when you paste it yours grows too: 10 books for your first friend, 5 each for the second and third. Each person can accept only one invite, and inviting each other does not count. The invite record is kept in the Keychain and your iCloud, so it comes back on a new device or after reinstalling.
+
+### Reading level
+
+Your reading time adds up day by day (up to 60 minutes a day), through 36 levels from Firefly to Dawn. Tap the level beside your name on the Me page to see every level and when you reached it.
 
 ## Home Screen widgets and covers
 

@@ -1,7 +1,7 @@
 # PillowBook Privacy Policy
 
 Effective date: September 13, 2026  
-Last updated: October 12, 2026  
+Last updated: October 17, 2026  
 Version: 1.1
 
 This Privacy Policy applies to the iOS application PillowBook (the “App”) and the public support pages directly associated with the App.
@@ -14,6 +14,7 @@ The current version of the App:
 
 - does not require an account or sign-in;
 - does not operate a Developer cloud server for uploading or syncing books;
+- keeps the reader ID and invite record of the Me page in your iOS Keychain, with a copy in your own iCloud (see Section 2.7), which the Developer cannot access;
 - contains no third-party advertising, behavioral analytics, or cross-app tracking SDKs;
 - does not sell personal data or use it for targeted advertising or data brokerage;
 - processes books, reading history, bookmarks, underlines and notes, generated speech audio, translations, and reading preferences on the device by default; and
@@ -63,6 +64,17 @@ So that its Home Screen widgets can show content, the App writes the following t
 
 Books in the “Vault” and archived books are not written there and do not appear in widgets. Widgets are shown on your Home Screen, so anyone who can see your device’s screen can also see those titles and covers. You can remove a widget at any time if you do not want them shown.
 
+### 2.7 The Me page and inviting friends
+
+- **Reader ID**: When the App first starts, it creates a random 16-character ID, used to make your invite code and to check the receipt codes friends send back. It is generated from random numbers and does not contain or derive from your name, device, or account information.
+- **Name and avatar**: The name you enter on the Me page and the avatar you choose. A custom avatar picked from Photos is cropped and stored in the App’s `Documents/User/` folder (how photos are picked: Section 2.2).
+- **Reading level**: Worked out from the daily reading time recorded on the device; the date each level was reached is stored in `Documents/User/levels.json`.
+- **Invite record**: Who invited you, which friends’ receipt codes you have accepted (their IDs and the dates), and the library space this adds.
+
+The ID, name, and invite record are stored in the iOS Keychain; if iCloud Keychain is on, Apple’s iCloud Keychain syncs them between your own devices. The ID and invite record (as signed invite and receipt codes) are also copied to the key-value storage of your own iCloud account, so they can be recovered after a new device or reinstalling. Both services are provided by Apple; only the App can read this data, and the Developer can neither access nor receive it. `Documents/User/invites.json` is a copy of the record for you to view in the Files app.
+
+Invite and receipt codes leave the App only when you choose to send them to a friend (Section 3.4). The App does not read your contacts and does not know whom you send a code to.
+
 ## 3. Information that may leave your device
 
 ### 3.1 Support email you choose to send
@@ -93,13 +105,15 @@ Wi-Fi Transfer currently uses local HTTP rather than a TLS-encrypted connection 
 
 When you use note share images, cover share images, or other sharing features, the App creates the images and text on the device and then hands them to the iOS share sheet. The content is sent to the app, contact, or location you choose in the share sheet and is handled by that recipient under its own policies; neither the App nor the Developer handles or stores this shared content.
 
+On the Me page, Invite and Send share a link to a page on the Developer’s public website, with the invite or receipt code after the “#” in the link. Browsers do not send what follows the “#” to the website; the page reads and shows the code only on the device that opens it (the website itself: Section 3.5). An invite code is made from your reader ID. The Me page’s share poster shows your name, avatar, reading level, total reading time, reading streak, number of books finished, and this week’s reading; it does not include your reader ID or invite code.
+
 ### 3.5 Public privacy and support pages
 
 This policy and the support pages are intended to be published as static webpages that require no sign-in. The hosting provider may automatically process an IP address, request time, requested path, browser or device type, response status, and similar technical logs to deliver the pages, maintain security, and prevent abuse. The Developer does not intentionally add advertising, behavioral analytics, cross-site tracking, or non-essential cookies to these pages. Processing that the host determines for its own purposes is governed by the terms shown for the hosting domain. When selecting or changing the host, the Developer will verify the actual configuration and add provider, retention, and international-transfer details where applicable law requires them.
 
 ## 4. Files, backups, and device migration
 
-The App has no Developer-operated cloud-sync feature. Books (including the original files kept at import), underlines and notes, note images, custom covers, and generated narration audio are stored in the App’s Documents directory and may be visible in the Files app, Finder file sharing, or device migration to a person who can access your unlocked device.
+The App has no Developer-operated cloud-sync feature. The Me page’s ID, name, and invite record are kept between your own devices through Apple’s iCloud Keychain and iCloud key-value storage (Section 2.7), which the Developer cannot access. Books (including the original files kept at import), underlines and notes, note images, custom covers, and generated narration audio are stored in the App’s Documents directory and may be visible in the Files app, Finder file sharing, or device migration to a person who can access your unlocked device.
 
 Depending on your iOS, iCloud, and device-backup settings, Apple may include local App data in iCloud Backup or a computer backup and restore that data during migration or recovery; the reproducible narration-audio cache is excluded from backups. These backups are controlled by you and Apple; they are not a Developer-operated sync service. Deleting the App normally removes its current on-device container. Offloading the App may retain its data, and copies already present in a backup or another location may remain.
 
@@ -133,6 +147,7 @@ The current App contains no third-party advertising or analytics SDK. Before rel
 
 - Books, original files, bookmarks, underlines and notes, note images, custom covers, reading position, per-book reading statistics, and preferences normally remain until you delete the relevant content, book, or setting, or delete the App. Deleting a book also deletes all of the above that relates to that book, together with that book’s note draft.
 - The local daily reading-activity log rolls forward and retains approximately one year.
+- The Me page’s ID, name, and invite record are kept in the Keychain and your iCloud; they usually remain after you delete the App and come back when you reinstall it. They contain only a random ID, a name, invite and receipt codes, and dates, and no books or reading content. The App does not currently offer a button to delete them; the avatar, level record, and copy in `Documents/User/` are deleted with the App.
 - Shared data used by Home Screen widgets is rewritten from the current library at each refresh; books that are deleted, archived, or moved to the Vault are removed from it. It is deleted when you delete the App.
 - Generated narration is a reproducible cache. The App removes it according to cache settings, and you can clear it for one book or all books. Deleting a book also removes its associated narration cache.
 - A selected background image remains until you replace or clear it, or delete the App.
