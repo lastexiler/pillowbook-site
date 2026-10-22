@@ -65,6 +65,8 @@ Coming soon
 - Fixed long-press text selection occasionally freezing for a few seconds.
 - Fixed reading progress and bookmarks moving to the wrong place after redetecting chapters in a txt book.
 - Fixed in-book search sometimes staying stuck on “Searching…”.
+- Fixed importing several books at once past the Library limit sometimes showing no message, with the extra books silently left out.
+- Fixed the yellow mark from a bookmark or search jump appearing in an unrelated place after turning back into a very short previous chapter.
 - Fixed a crash when opening Contents with VoiceOver turned on in iOS 27.
 - Fixed memory use growing after reading several books in a row.
 - Fixed covers in Reading Stats not matching the ones in the library.
