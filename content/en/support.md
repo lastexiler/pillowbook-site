@@ -100,7 +100,7 @@ In Settings › Me, tap Invite and send the link to a friend. Once they have Pil
 
 ### Reading level
 
-Your reading time adds up day by day (up to 60 minutes a day), through 36 levels from Firefly to Dawn. Tap the level beside your name on the Me page to see every level and when you reached it.
+Your reading time adds up day by day (up to 60 minutes a day), through 36 levels. Each theme has its own set of level icons — Reef from Clownfish to Whale, Aurora from Firefly to Milky Way — one unlocked at each of Lv 1, 5, 10, 15, 20, 25, 30 and 36. Tap the level beside your name on the Me page to see every level and when you unlocked it, and pick which unlocked icon to show; swipe across the header picture to switch themes.
 
 ## Home Screen widgets and covers
 

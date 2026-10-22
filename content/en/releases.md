@@ -12,8 +12,8 @@ Coming soon
 - **Translate a Selection**: Select a passage in another language and tap Translate, and your iPhone translates it into your language right on the device, with no account needed.
 - **Home Screen Widgets**: Put the books you’re reading and how long you’ve read today on your Home Screen, and tap to go straight back into a book.
 - **Custom Covers**: Make a book’s cover from your own photo, and decide where the title goes, how big it is and how it’s aligned.
-- **Made for iPhone Duo**: Held sideways, the inner display fills the screen with two pages side by side, like an open book; the library, menus and cards are all laid out afresh for the inner display.
-- **Me**: A new Me page at the top of Settings, with a moving undersea picture, your avatar and name, a reading level that rises with your reading time (36 levels, from Firefly to Dawn), and this week’s Reading Log.
+- **Made for iPhone Duo**: Held sideways, the inner display fills the screen with two pages side by side, like an open book; the library, menus and cards are all laid out afresh for the inner display. On the outer display, the Me page fills the screen too, with its buttons below the camera.
+- **Me**: A new Me page at the top of Settings, with a moving header picture (two themes, Reef and Aurora — swipe across the picture to switch), your avatar and name, a reading level that rises with your reading time (36 levels, with a set of level icons for each theme — from Clownfish to Whale in Reef, from Firefly to Milky Way in Aurora — and any icon you have unlocked can be the one you show), and this week’s Reading Log.
 
 ### New
 
@@ -37,6 +37,8 @@ Coming soon
 - **Faster In-Book Search**: Searching a chapter with many matches is noticeably faster.
 - **Wide-Screen Layout**: On iPad in landscape and on the inner display of iPhone Duo, Recently Read on the left of the library shows two columns of large covers, and menus and cards fit the window size.
 - **Consistent Design**: Buttons, cards and pop-ups share the same rounded corners and margins, and match the new system look on iOS 18 as well.
+- **Bigger Pop-ups on iPad**: On iPad, Settings, Contents, Book Info and other pop-ups are wider and taller, close to the full screen, instead of a small box in the middle.
+- **Pop-ups Sized to Their Content**: Wi-Fi Transfer, the share poster, and the Voice and Get Voices panels in Listen are as tall as what is in them, without large blank areas.
 - **EPUB Titles**: EPUBs keep the title written in the book; the file name is used only when the title is empty or a placeholder such as “Unknown” or “Untitled”.
 - **Selecting Across Pages**: In Scroll mode and in the two-page view on iPad in landscape, a long-press selection can be dragged across the seam between pages.
 - **EPUB Illustration Sizes**: Illustrations appear at the size the book specifies, so small icons and avatars no longer fill a whole line, and icons inside a sentence stay in the text. Books already imported need to be imported again.
