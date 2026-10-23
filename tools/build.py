@@ -216,7 +216,7 @@ CODE_PAGES["zh-Hans"] = dict(
     copy="复制", copied="已复制", copy_failed="请长按上面的码手动复制",
     app_store="在 App Store 下载",
     missing="这个链接不完整，请让好友重新发送。",
-    wechat="在微信里打不开 App Store 时，点右上角「···」，选「在默认浏览器中打开」。",
+    inapp="如果这里打不开 App Store，请在浏览器（如 Safari）中打开这个页面。",
     privacy="这串码只存在于链接中，不会上传到任何服务器。",
 )
 
@@ -236,7 +236,7 @@ CODE_PAGES["zh-Hant"] = dict(
     copy="複製", copied="已複製", copy_failed="請長按上方的碼手動複製",
     app_store="在 App Store 下載",
     missing="這個連結不完整，請好友重新傳送。",
-    wechat="在微信中無法開啟 App Store 時，請點右上角「···」，選擇「在預設瀏覽器中開啟」。",
+    inapp="如果這裡無法開啟 App Store，請在瀏覽器（如 Safari）中開啟這個頁面。",
     privacy="這串碼只存在於連結中，不會上傳到任何伺服器。",
 )
 CODE_PAGES["en"] = dict(
@@ -255,7 +255,7 @@ CODE_PAGES["en"] = dict(
     copy="Copy", copied="Copied", copy_failed="Press and hold the code above to copy it.",
     app_store="Download on the App Store",
     missing="This link is incomplete. Ask your friend to send it again.",
-    wechat="If the App Store won’t open in WeChat, tap ··· at the top right and choose to open the page in your browser.",
+    inapp="If the App Store won’t open from here, open this page in your browser (such as Safari).",
     privacy="The code exists only in this link and is never sent to any server.",
 )
 CODE_PAGES["ja"] = dict(
@@ -274,7 +274,7 @@ CODE_PAGES["ja"] = dict(
     copy="コピー", copied="コピーしました", copy_failed="上のコードを長押ししてコピーしてください",
     app_store="App Store でダウンロード",
     missing="このリンクは不完全です。友だちにもう一度送ってもらってください。",
-    wechat="WeChat で App Store が開けないときは、右上の「···」からブラウザで開いてください。",
+    inapp="ここから App Store が開けないときは、このページをブラウザ（Safari など）で開いてください。",
     privacy="コードはこのリンクの中にだけあり、サーバーに送信されることはありません。",
 )
 
@@ -350,7 +350,7 @@ def code_page(lang, kind):
   <ol class="steps" id="steps">{''.join(steps)}</ol>
   <div id="missing" hidden><p class="lead">{html.escape(c['missing'])}</p>{f'<a class="pill store" href="{APP_STORE}">{c["app_store"]}</a>' if download else ''}</div>
 </div>
-{f'<p class="note">{html.escape(c["wechat"])}</p>' if download else ''}
+{f'<p class="note">{html.escape(c["inapp"])}</p>' if download else ''}
 <p class="note">{html.escape(c['privacy'])}</p>
 </main>
 {script}
