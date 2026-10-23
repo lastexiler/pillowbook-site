@@ -1,7 +1,7 @@
 # PillowBook Privacy Policy
 
 Effective date: September 13, 2026  
-Last updated: October 17, 2026  
+Last updated: October 23, 2026  
 Version: 1.1
 
 This Privacy Policy applies to the iOS application PillowBook (the “App”) and the public support pages directly associated with the App.
@@ -56,7 +56,7 @@ The “Vault” uses iOS device-owner authentication. Face ID, Touch ID, or devi
 
 ### 2.5 Purchase status
 
-The App locally stores whether the library limit has been unlocked, the number of tips recorded on that device, and a limited set of transaction identifiers used to avoid counting the same tip twice. StoreKit verifies entitlement and transaction authenticity. The App does not create a purchase profile on a Developer server.
+The App locally stores whether the library limit has been unlocked, the number of tips recorded on that device, and a limited set of transaction identifiers used to avoid counting the same tip twice. When you redeem Library Expansion or Limited-time Unlimited Library, the App also records that transaction’s identifier and redemption date, to work out the added library capacity and when it ends. StoreKit verifies entitlement and transaction authenticity. The App does not create a purchase profile on a Developer server.
 
 ### 2.6 Home Screen widgets
 
@@ -67,11 +67,12 @@ Books in the “Vault” and archived books are not written there and do not app
 ### 2.7 The Me page and inviting friends
 
 - **Reader ID**: When the App first starts, it creates a random 16-character ID, used to make your invite code and to check the receipt codes friends send back. It is generated from random numbers and does not contain or derive from your name, device, or account information.
-- **Name and avatar**: The name you enter on the Me page and the avatar you choose. A custom avatar picked from Photos is cropped and stored in the App’s `Documents/User/` folder (how photos are picked: Section 2.2).
-- **Reading level**: Worked out from the daily reading time recorded on the device; the date each level was reached is stored in `Documents/User/levels.json`.
+- **Name and avatar**: The name you enter on the Me page and the avatar you choose. A custom avatar picked from Photos is cropped and stored inside the App, in `Application Support/User/`, which the Files app does not show (how photos are picked: Section 2.2).
+- **Reading level**: Worked out from the daily reading time recorded on the device; the date each level was reached is stored in `Application Support/User/levels.json`.
+- **On-device record**: The App keeps one record in this device’s iOS Keychain that belongs to this device alone: the theme you chose, the level icon you show, the levels you have already seen, and your total reading time. It is not synced through iCloud Keychain and contains no books or reading content.
 - **Invite record**: Who invited you, which friends’ receipt codes you have accepted (their IDs and the dates), and the library space this adds.
 
-The ID, name, and invite record are stored in the iOS Keychain; if iCloud Keychain is on, Apple’s iCloud Keychain syncs them between your own devices. The ID and invite record (as signed invite and receipt codes) are also copied to the key-value storage of your own iCloud account, so they can be recovered after a new device or reinstalling. Both services are provided by Apple; only the App can read this data, and the Developer can neither access nor receive it. `Documents/User/invites.json` is a copy of the record for you to view in the Files app.
+The ID, name, and invite record are stored in the iOS Keychain; if iCloud Keychain is on, Apple’s iCloud Keychain syncs them between your own devices. The ID and invite record (as signed invite and receipt codes) are also copied to the key-value storage of your own iCloud account, so they can be recovered after a new device or reinstalling. Both services are provided by Apple; only the App can read this data, and the Developer can neither access nor receive it. `Application Support/User/invites.json` is a copy of the record, used only for the App’s own display.
 
 Invite and receipt codes leave the App only when you choose to send them to a friend (Section 3.4). The App does not read your contacts and does not know whom you send a code to.
 
@@ -113,7 +114,7 @@ This policy and the support pages are intended to be published as static webpage
 
 ## 4. Files, backups, and device migration
 
-The App has no Developer-operated cloud-sync feature. The Me page’s ID, name, and invite record are kept between your own devices through Apple’s iCloud Keychain and iCloud key-value storage (Section 2.7), which the Developer cannot access. Books (including the original files kept at import), underlines and notes, note images, custom covers, and generated narration audio are stored in the App’s Documents directory and may be visible in the Files app, Finder file sharing, or device migration to a person who can access your unlocked device.
+The App has no Developer-operated cloud-sync feature. The Me page’s ID, name, and invite record are kept between your own devices through Apple’s iCloud Keychain and iCloud key-value storage (Section 2.7), which the Developer cannot access. Books (including the original files kept at import), underlines and notes, note images, custom covers, and generated narration audio are stored in the App’s Documents directory and may be visible in the Files app, Finder file sharing, or device migration to a person who can access your unlocked device. The Me page’s avatar and level record, the daily reading log, and the reading record (Section 7) are stored inside the App, in its Application Support directory; the Files app does not show them, but they may likewise be included in backups and device migration. The on-device Keychain record described in Section 2.7 moves with encrypted iCloud or computer backups and device migration; unencrypted computer backups do not include it.
 
 Depending on your iOS, iCloud, and device-backup settings, Apple may include local App data in iCloud Backup or a computer backup and restore that data during migration or recovery; the reproducible narration-audio cache is excluded from backups. These backups are controlled by you and Apple; they are not a Developer-operated sync service. Deleting the App normally removes its current on-device container. Offloading the App may retain its data, and copies already present in a backup or another location may remain.
 
@@ -146,8 +147,10 @@ The current App contains no third-party advertising or analytics SDK. Before rel
 ## 7. Retention and deletion
 
 - Books, original files, bookmarks, underlines and notes, note images, custom covers, reading position, per-book reading statistics, and preferences normally remain until you delete the relevant content, book, or setting, or delete the App. Deleting a book also deletes all of the above that relates to that book, together with that book’s note draft.
-- The local daily reading-activity log rolls forward and retains approximately one year.
-- The Me page’s ID, name, and invite record are kept in the Keychain and your iCloud; they usually remain after you delete the App and come back when you reinstall it. They contain only a random ID, a name, invite and receipt codes, and dates, and no books or reading content. The App does not currently offer a button to delete them; the avatar, level record, and copy in `Documents/User/` are deleted with the App.
+- Daily reading time, totalled by date, is stored locally and kept in full, to work out your reading level; it is deleted with the App.
+- The App records locally when each reading or listening session starts and ends, together with the book’s title, author, and reading progress at the time, for future reading statistics. These records remain after a book is deleted; they are deleted with the App.
+- The Me page’s ID, name, and invite record are kept in the Keychain and your iCloud; they usually remain after you delete the App and come back when you reinstall it. They contain only a random ID, a name, invite and receipt codes, and dates, and no books or reading content. The App does not currently offer a button to delete them; the avatar, level record, and copy in `Application Support/User/` are deleted with the App.
+- The on-device Keychain record described in Section 2.7 (the theme, the level icon shown, the levels already seen, and total reading time) usually remains after you delete the App and is used again when you reinstall it; the App does not currently offer a button to delete it.
 - Shared data used by Home Screen widgets is rewritten from the current library at each refresh; books that are deleted, archived, or moved to the Vault are removed from it. It is deleted when you delete the App.
 - Generated narration is a reproducible cache. The App removes it according to cache settings, and you can clear it for one book or all books. Deleting a book also removes its associated narration cache.
 - A selected background image remains until you replace or clear it, or delete the App.
