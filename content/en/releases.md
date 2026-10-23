@@ -26,6 +26,7 @@ Coming soon
 - **Original Files Kept**: A copy of the original file is kept on import, so a book can be repaired automatically if its reading files are damaged.
 - **Library Check**: Check your whole library in Settings to find and deal with incomplete books.
 - **Back to Top**: When you scroll far down the library, a button appears in the bottom-right corner to take you back to the top.
+- **Your Avatar on iPhone Duo**: When iPhone Duo shows the status bar down the side (on the outer display, or the inner display held sideways), your avatar sits at the foot of that column; tap it to go straight to Me.
 
 ### Improvements
 
