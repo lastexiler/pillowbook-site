@@ -4,7 +4,7 @@ New features and fixes in each version of PillowBook.
 
 ## 1.1
 
-Coming soon
+October 27, 2026
 
 ### Highlights {.highlights}
 
