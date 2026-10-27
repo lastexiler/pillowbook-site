@@ -13,16 +13,25 @@ October 27, 2026
 - **Home Screen Widgets**: Put the books you’re reading and how long you’ve read today on your Home Screen, and tap to go straight back into a book.
 - **Custom Covers**: Make a book’s cover from your own photo, and decide where the title goes, how big it is and how it’s aligned.
 - **Made for iPhone Duo**: Held sideways, the inner display fills the screen with two pages side by side, like an open book; the library, menus and cards are all laid out afresh for the inner display. On the outer display, the Me page fills the screen too, with its buttons below the camera.
-- **Me**: A new Me page at the top of Settings, with a moving header picture (two themes, Reef and Aurora — swipe across the picture to switch), your avatar and name, a reading level that rises with your reading time (36 levels, with a set of level icons for each theme — from Clownfish to Whale in Reef, from Firefly to Milky Way in Aurora — and any icon you have unlocked can be the one you show), and this week’s Reading Log.
+- **Me**: A new Me page at the top of Settings — your own page in PillowBook. Set your own name and avatar, earn trophies as your reading level rises and show one beside your name, see this week’s Reading Log, and choose between two themes, Reef and Aurora.
 
 ### New
 
-- **Invite Friends**: Send a friend your invite link, and their library gets room for 10 more books once they accept; when they send back their receipt code, yours grows too (+10, +5 and +5 books for your first three friends).
-- **Reading Poster**: Turn your reading level, reading time and this week’s Reading Log into a poster to share with friends, right from the Me page.
-- **Cover Sharing**: Turn a book’s cover into an image you can share.
-- **Custom Theme Colour**: Pick a paper colour you like from the colour wheel, which only offers colours that keep the text easy to read.
+- **Me page**: Me, at the top of Settings, is your own page in PillowBook: your name, your avatar, your reading level and trophies, and this week’s Reading Log.
+  - **Name and avatar**: Change your name any time; for your avatar, pick one of three origami pictures or use your own photo.
+  - **Two themes**: Reef and Aurora. The header is a moving picture that turns to night in Dark Mode; swipe across it to switch themes, and the trophies switch to that theme’s set.
+    ![Reef](../assets/releases/1.1/theme-reef.jpg) ![Aurora](../assets/releases/1.1/theme-aurora.jpg) {.themes}
+  - **Reading level and trophies**: Your reading time adds up day by day (up to 60 minutes a day), through 36 levels. Each theme has a set of eight trophies, one earned at each of Lv 1, 5, 10, 15, 20, 25, 30 and 36; pick any trophy you have earned to show beside your name with your level — it goes on your Reading Poster too.
+    Reef ![Clownfish|Lv 1](../assets/releases/1.1/emblem-ocean-1.png) ![Pufferfish|Lv 5](../assets/releases/1.1/emblem-ocean-2.png) ![Jellyfish|Lv 10](../assets/releases/1.1/emblem-ocean-3.png) ![Sea Turtle|Lv 15](../assets/releases/1.1/emblem-ocean-4.png) ![Dolphin|Lv 20](../assets/releases/1.1/emblem-ocean-5.png) ![Manta|Lv 25](../assets/releases/1.1/emblem-ocean-6.png) ![Shark|Lv 30](../assets/releases/1.1/emblem-ocean-7.png) ![Whale|Lv 36](../assets/releases/1.1/emblem-ocean-8.png) {.emblems}
+    Aurora ![Firefly|Lv 1](../assets/releases/1.1/emblem-aurora-1.png) ![Maple Leaf|Lv 5](../assets/releases/1.1/emblem-aurora-2.png) ![Snowflake|Lv 10](../assets/releases/1.1/emblem-aurora-3.png) ![Snowy Pine|Lv 15](../assets/releases/1.1/emblem-aurora-4.png) ![Snow Peak|Lv 20](../assets/releases/1.1/emblem-aurora-5.png) ![Moon|Lv 25](../assets/releases/1.1/emblem-aurora-6.png) ![Saturn|Lv 30](../assets/releases/1.1/emblem-aurora-7.png) ![Milky Way|Lv 36](../assets/releases/1.1/emblem-aurora-8.png) {.emblems}
+  - **Invite Friends**: Send a friend your invite link, and their library gets room for 10 more books once they accept; when they send back their receipt code, yours grows too (+10, +5 and +5 books for your first three friends).
+  - **Reading Poster**: Turn your reading level, trophy, reading time and this week’s Reading Log into a poster to share with friends.
+- **Custom Covers**: Make a book’s cover from your own photo: press and hold a book in the library → “Change Cover”, tap “+” in the “Custom” tile and choose a photo; after cropping, drag the title and adjust its size and alignment.
+  - **Cover Sharing**: Turn the finished cover into an image — the cover, its title and the date — to share with friends.
+- **Custom Reading Background**: Reading themes gain “Custom Theme Colour” — pick any colour from the wheel as the page background, and the text switches to dark or light to suit it; the wheel only offers colours that keep the text easy to read.
 - **Redetect EPUB Chapters**: EPUBs with contents that are too coarse can have their chapters redetected from headings, and you can switch back to the book’s own contents at any time.
 - **Waiting for Audio**: The progress bar shows how much audio is ready, and if you drag past it, playback waits until the audio is generated and starts from there.
+- **New Library Storage**: Each book’s original file, its progress and notes, and the data used to lay it out are now kept apart, so problems are easier to repair; PillowBook also starts recording, on this device only, when you read and listen, ready for reading statistics to come. The first time you open the app after updating, it reorganizes your library once — with many books this takes a moment, showing “Organizing Library” with progress; please stay in PillowBook. If it is interrupted, it picks up again the next time you open the app.
 - **Original Files Kept**: A copy of the original file is kept on import, so a book can be repaired automatically if its reading files are damaged.
 - **Library Check**: Check your whole library in Settings to find and deal with incomplete books.
 - **Back to Top**: When you scroll far down the library, a button appears in the bottom-right corner to take you back to the top.

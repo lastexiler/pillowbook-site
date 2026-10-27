@@ -433,10 +433,37 @@ def inline(text):
     return text
 
 
+def list_item(item):
+    """One <li>: its text, its rows of pictures, then its sub-items."""
+    subs = "".join(list_item(i) for i in item["subs"])
+    return (f"<li>{inline(item['text'])}" + "".join(gallery(r) for r in item["rows"])
+            + (f"<ul>{subs}</ul>" if subs else "") + "</li>")
+
+
+def gallery(row):
+    """A row of pictures in the release notes: an optional label, then
+    ![caption](path) pictures, then {.kind} for the row's look (themes:
+    tall thumbnails; emblems: small icons). A | in a caption breaks it into
+    two lines (name | Lv 5)."""
+    kind = re.search(r"\{\.([\w-]+)\}\s*$", row)
+    row = row[:kind.start()] if kind else row
+    label, _, _ = row.partition("![")
+    figures = []
+    for alt, src in re.findall(r"!\[([^\]]*)\]\(([^)\s]+)\)", row):
+        lines = [html.escape(p.strip(), quote=False) for p in alt.split("|")]
+        figures.append(f'<figure><img src="{html.escape(src)}" alt="{html.escape(" ".join(alt.replace("|", " ").split()))}" loading="lazy">'
+                       f'<figcaption>{"<br>".join(lines)}</figcaption></figure>')
+    head = f'<span class="gallery-label">{inline(label.strip())}</span>' if label.strip() else ""
+    return f'<div class="gallery {kind.group(1) if kind else ""}">{head}<div class="gallery-row">{"".join(figures)}</div></div>'
+
+
 def markdown(md):
     """The small Markdown subset the legal drafts use: #/##/### headings,
-    paragraphs, - and 1. lists (one level), **bold**, `code`, [text](url),
-    two trailing spaces for a line break, > for the boxed summary."""
+    paragraphs, - and 1. lists, **bold**, `code`, [text](url), two trailing
+    spaces for a line break, > for the boxed summary. Inside a list (the
+    release notes), a line indented two or more spaces is either a "- "
+    sub-item of the item above, or a row of pictures (`gallery`) under the
+    item or sub-item above."""
     out, para, lst, quote = [], [], None, []
 
     def flush_para():
@@ -448,7 +475,7 @@ def markdown(md):
         nonlocal lst
         if lst:
             tag, items = lst
-            out.append(f"<{tag}>" + "".join(f"<li>{inline(i)}</li>" for i in items) + f"</{tag}>")
+            out.append(f"<{tag}>" + "".join(list_item(i) for i in items) + f"</{tag}>")
             lst = None
 
     def flush_quote():
@@ -461,6 +488,13 @@ def markdown(md):
         stripped = line.strip()
         if not stripped:
             flush_para(); flush_list(); flush_quote(); continue
+        if lst and line.startswith("  "):
+            item = lst[1][-1]
+            m = re.match(r"^-\s+(.*)$", stripped)
+            if m:
+                item["subs"].append({"text": m.group(1), "rows": [], "subs": []}); continue
+            if "![" in stripped:
+                (item["subs"][-1] if item["subs"] else item)["rows"].append(stripped); continue
         m = re.match(r"^(#{1,3})\s+(.*)$", stripped)
         if m:
             flush_para(); flush_list(); flush_quote()
@@ -475,7 +509,7 @@ def markdown(md):
                 flush_list()
             if not lst:
                 lst = (tag, [])
-            lst[1].append(m.group(2)); continue
+            lst[1].append({"text": m.group(2), "rows": [], "subs": []}); continue
         flush_list(); flush_quote()
         # soft-wrapped lines join the previous one; two trailing spaces force <br>
         if para and not para[-1].endswith("\x00"):
