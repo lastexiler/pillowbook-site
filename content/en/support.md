@@ -98,9 +98,9 @@ Read-aloud uses the voices built into iOS. In Settings › Accessibility › Spo
 
 In Settings › Me, tap Invite and send the link to a friend. Once they have PillowBook, they paste the invite code in Settings › Me › Enter Invite / Receipt Code and their library holds 10 more books; then they send you their receipt code, and when you paste it yours grows too: 10 books for your first friend, 5 each for the second and third. Each person can accept only one invite, and inviting each other does not count. The invite record is kept in the Keychain and your iCloud, so it comes back on a new device or after reinstalling.
 
-### Reading level
+### Reading level and trophies
 
-Your reading time adds up day by day (up to 60 minutes a day), through 36 levels. Each theme has its own set of level icons — Reef from Clownfish to Whale, Aurora from Firefly to Milky Way — one unlocked at each of Lv 1, 5, 10, 15, 20, 25, 30 and 36. Tap the level beside your name on the Me page to see every level and when you unlocked it, and pick which unlocked icon to show; swipe across the header picture to switch themes.
+Your reading time adds up day by day (up to 60 minutes a day), through 36 levels. Each theme has its own set of trophies — Reef from Clownfish to Whale, Aurora from Firefly to Milky Way — one earned at each of Lv 1, 5, 10, 15, 20, 25, 30 and 36. Tap the level beside your name on the Me page to see every level and when you earned it, and pick which trophy you have earned to show; swipe across the header picture to switch themes.
 
 ## Home Screen widgets and covers
 
