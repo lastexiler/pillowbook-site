@@ -2,6 +2,20 @@
 
 New features and fixes in each version of PillowBook.
 
+## 1.2
+
+Coming soon
+
+### Improvements
+
+- **More Accurate Chapter Detection**: Books whose chapter titles contain a comma, or whose titles run straight into the text (a line break lost when the file was converted), are now split into chapters correctly. For books already imported, tap Redetect in Contents.
+- **More Heading Patterns**: Choose a Heading Pattern now also offers titles with commas and lines starting with a number (such as “01. Wind Rises”), listed as the book actually writes them.
+- **Faster Redetect, with Progress**: Redetect Chapters and switching how a book is split now show a progress bar, and detection on large books takes about half as long.
+
+### Fixes
+
+- Fixed the app closing unexpectedly when opening Redetect Chapters for a book with many chapter files (such as an EPUB collection of over a thousand chapters).
+
 ## 1.1
 
 October 27, 2026
