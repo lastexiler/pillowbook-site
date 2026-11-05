@@ -6,15 +6,60 @@ New features and fixes in each version of PillowBook.
 
 Coming soon
 
+### Highlights {.highlights}
+
+- **EPUB Layout, Rebuilt**: The layout a book's designer wrote — full-page backgrounds, boxes, headings, text effects, footnotes, lists, vertical text — is now set as close to the original as possible, and stays readable in Night.
+- **Reading Engine Updates Itself**: EPUBs imported before are re-laid out once with the new rules when you open them; your reading position, bookmarks, underlines and notes stay where they were.
+- **Smoother Across Chapters**: The next chapter is laid out ahead of time, so turning into it doesn't wait; Page Curl now curls across chapters too, forwards and back.
+- **Page Numbers Like a Printed Book**: Covers, illustrations and credits pages each count as a page, so the number moves as you turn them; in a two-page spread each page shows its own number.
+
+### EPUB Layout, Rebuilt
+
+This version reworks how EPUBs are laid out: what a book's stylesheet asks for is set as the book intends, while body text still follows your Layout settings for size, line spacing, paragraph spacing and indent; the parts the book designs on its own — headings, poems, quotations, boxes, footnotes — follow the book. The screenshots below are from PillowBook's own style test book.
+
+- **Full-page backgrounds and illustration pages**: Background pictures a book designs for its pages (covering the page, a small repeating texture, a frame stretched to the page edge) appear as designed, including white text on dark backgrounds; a full-page illustration gets a page of its own, with no chapter title or page number over it; a chapter-opening picture set to the page edge now reaches the top of the screen.
+  ![White text on a dark background](../assets/releases/1.2/bg-dark.jpg) ![A large picture behind a heading](../assets/releases/1.2/badge.jpg) ![A tag at the page edge](../assets/releases/1.2/tag-bleed.jpg) {.pages}
+- **Boxes**: A book's boxes are drawn as written — background colours and pictures, rounded corners (each corner its own), solid, dashed, dotted and double borders (each side its own), width and centring; chat bubbles, comments boxed inside a post, and small tags as wide as their words all show.
+  ![Rounded box](../assets/releases/1.2/panel-round.jpg) ![Chat bubbles](../assets/releases/1.2/bubbles.jpg) ![Boxes inside boxes](../assets/releases/1.2/nested.jpg) ![Double, dashed and one-sided borders](../assets/releases/1.2/borders.jpg) {.pages}
+- **Headings and text**: Headings follow the size, weight and colour the book gives them (they used to take the reader's own heading style); every way of writing a font size is understood (such as x-large or smaller); italics in Chinese and Japanese fonts that have no italic are slanted, in vertical text too.
+  ![Heading levels](../assets/releases/1.2/headings.jpg) ![Font sizes](../assets/releases/1.2/font-sizes.jpg) ![Chinese and Japanese italics](../assets/releases/1.2/italic.jpg) {.pages}
+- **Underline, strikethrough and emphasis marks**: Solid, double, dotted, dashed and wavy lines and their colours follow the book; emphasis marks sit above the characters in horizontal text and to their right in vertical text.
+  ![Underline and strikethrough](../assets/releases/1.2/underline.jpg) ![Emphasis marks](../assets/releases/1.2/emphasis.jpg) {.strips}
+- **Poems, quotations, lists and rules**: Centred verse, hanging indents on wrapped lines and the margins of quotations follow the book; bullets, numbering (numbers, letters, Roman numerals) and horizontal rules are shown.
+  ![A poem](../assets/releases/1.2/poem.jpg) ![Lists and a rule](../assets/releases/1.2/lists.jpg) {.pages}
+- **Footnotes**: In books that keep the notes on the same page as the text, tapping a note marker now opens the note card; Duokan-style note icons are one character tall; the note text no longer sits in the middle of the reading text.
+  ![A note marker](../assets/releases/1.2/footnote.jpg) {.strips}
+- **Vertical text**: Books that declare themselves vertical throughout open in Vertical on import; half-width brackets, quotation marks and dashes are turned the way vertical text writes them; emphasis marks and italics show in vertical text as well.
+  ![Brackets and symbols in vertical text](../assets/releases/1.2/v-brackets.jpg) ![Emphasis marks in vertical text](../assets/releases/1.2/v-emphasis.jpg) ![Italics in vertical text](../assets/releases/1.2/v-italic.jpg) {.tall}
+- **Readable in Night**: Text colours the book sets are lightened on a dark paper; light boxes become dark boxes of the same hue, with their text adjusted to match; illustrations are dimmed slightly; line drawings the book marks to be inverted at night are inverted, and no other picture is.
+  ![Boxes on a dark paper](../assets/releases/1.2/night-panels.jpg) ![Text colours](../assets/releases/1.2/night-colours.jpg) ![Chat bubbles](../assets/releases/1.2/night-bubbles.jpg) {.pages}
+- **More of the stylesheet understood**: Common selectors (children, siblings, attributes, :first-child, :not and more), !important, conditional rules (@media, @supports) and decorations added before or after text (::before, ::after); whether the book's style or your settings decide is settled by the CSS cascade.
+- **WebP pictures**: Illustrations in WebP format now show.
+
+### New
+
+- **Reading Engine Update**: When the layout rules change, EPUBs imported before are re-laid out once the next time you open them — the screen shows Updating Reading Engine, the progress and the current step. Afterwards your reading position, bookmarks, underlines, notes and unfinished notes are where they were, and books you split by headings are split again the same way. Books imported before 1.1 kept no original file: import the same file once more to add it, and the update runs the next time you open the book.
+
 ### Improvements
 
 - **More Accurate Chapter Detection**: Books whose chapter titles contain a comma, or whose titles run straight into the text (a line break lost when the file was converted), are now split into chapters correctly. For books already imported, tap Redetect in Contents.
 - **More Heading Patterns**: Choose a Heading Pattern now also offers titles with commas and lines starting with a number (such as “01. Wind Rises”), listed as the book actually writes them.
 - **Faster Redetect, with Progress**: Redetect Chapters and switching how a book is split now show a progress bar, and detection on large books takes about half as long.
+- **Across chapters**: Near the end of a chapter, the next one is already laid out in the background, so Page Turn and Page Curl move into it without waiting; Page Curl also curls across chapters — backwards, in two-page spreads and on illustration pages.
+- **Page numbers**: Pages are numbered like a printed book — covers, illustrations, credits and part-title pages each count as a page; in a two-page spread each page shows its own number.
+- **Import queue**: When several books arrive at once — from ＋, shared from another app and over Wi-Fi Transfer — they are imported one at a time in order; the Wi-Fi Transfer page shows each book as queued, importing, done or failed.
 
 ### Fixes
 
 - Fixed the app closing unexpectedly when opening Redetect Chapters for a book with many chapter files (such as an EPUB collection of over a thousand chapters).
+- Fixed a paragraph losing its first-line indent after a picture, or when the line before it was exactly full.
+- Fixed chapter-opening pictures ending up at the end of the previous chapter after an EPUB was split by headings.
+- Fixed illustration pages in WebP format showing blank.
+- Fixed note markers not responding in books that keep their notes on the same page as the text.
+- Fixed books written right to left in horizontal script, such as Arabic and Hebrew, being suggested for Vertical.
+- Fixed the same book being imported twice when sent again over Wi-Fi Transfer.
+- Fixed the reading page occasionally not responding to taps, with the menu failing to appear.
+- Fixed a closed book still taking up memory after Search had been used in it.
 
 ## 1.1
 

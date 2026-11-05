@@ -165,7 +165,22 @@ footer a { color: var(--muted); }
 .gallery.emblems .gallery-row { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; max-width: 640px; }
 .gallery.emblems figcaption { white-space: nowrap; font-size: 12px; }
 .gallery.emblems img { display: block; width: 48px; height: 48px; margin: 0 auto; }
+/* pages: phone screenshots of a reading page (1.2 style notes), wrapping, three to a row on a phone */
+.gallery.pages figure { flex: none; max-width: 100%; }
+.gallery.pages img { display: block; height: 190px; width: auto; max-width: 100%; object-fit: contain; border-radius: 10px;
+  box-shadow: 3px 3px 8px var(--shade), -3px -3px 8px var(--light); }
+/* tall: columns of vertical text (1.2 style notes), tall enough to read */
+.gallery.tall figure { flex: none; max-width: 100%; }
+.gallery.tall img { display: block; height: 300px; width: auto; max-width: 100%; object-fit: contain; border-radius: 10px;
+  box-shadow: 3px 3px 8px var(--shade), -3px -3px 8px var(--light); }
+/* strips: a line or two of a reading page (1.2 style notes), as wide as the column allows */
+.gallery.strips figure { flex: 1 1 260px; max-width: 420px; }
+.gallery.strips img { display: block; width: 100%; height: auto; border-radius: 10px;
+  box-shadow: 3px 3px 8px var(--shade), -3px -3px 8px var(--light); }
 @media (max-width: 600px) {
+  .gallery.pages .gallery-row { gap: 10px; }
+  .gallery.pages img { height: 120px; }
+  .gallery.tall img { height: 240px; }
   .release li > ul { padding-left: 0.9em; }
   .gallery.emblems .gallery-row { grid-template-columns: repeat(4, 1fr); row-gap: 12px; }
 }
