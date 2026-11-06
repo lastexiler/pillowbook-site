@@ -60,6 +60,8 @@ This version reworks how EPUBs are laid out: what a book's stylesheet asks for i
 - Fixed the same book being imported twice when sent again over Wi-Fi Transfer.
 - Fixed the reading page occasionally not responding to taps, with the menu failing to appear.
 - Fixed a closed book still taking up memory after Search had been used in it.
+- Fixed listening stopping at the end of a chapter instead of moving on to the next while your iPhone was locked or PillowBook was in the background.
+- Fixed white corners showing around the artwork on the Lock Screen while listening.
 
 ## 1.1
 
