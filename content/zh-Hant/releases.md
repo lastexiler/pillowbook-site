@@ -35,6 +35,7 @@
   ![深色紙上的框](../assets/releases/1.2/night-panels.jpg) ![文字顏色](../assets/releases/1.2/night-colours.jpg) ![聊天氣泡](../assets/releases/1.2/night-bubbles.jpg) {.pages}
 - **樣式表讀得更全**：常見的選擇器寫法（子元素、兄弟元素、屬性、:first-child、:not 等）、!important、依條件生效的規則（@media、@supports）、加在文字前後的裝飾（::before、::after）都能讀懂；書的樣式和你的閱讀設定誰說了算，依 CSS 的層疊規則決定。
 - **WebP 圖片**：書裡用 WebP 格式的插圖也能顯示。
+- **影片**：書裡嵌入的影片以封面圖顯示，上面帶播放標記，點一下全螢幕播放；正在聽書時會先暫停。Apple 播放器原本只有聲音、沒有畫面的一類 HEVC 影片，匯入時自動修正，能正常播放。沒有封面圖的影片，顯示書裡寫好的替代文字。
 
 ### 新功能
 

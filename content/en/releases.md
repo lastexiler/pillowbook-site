@@ -35,6 +35,7 @@ This version reworks how EPUBs are laid out: what a book's stylesheet asks for i
   ![Boxes on a dark paper](../assets/releases/1.2/night-panels.jpg) ![Text colours](../assets/releases/1.2/night-colours.jpg) ![Chat bubbles](../assets/releases/1.2/night-bubbles.jpg) {.pages}
 - **More of the stylesheet understood**: Common selectors (children, siblings, attributes, :first-child, :not and more), !important, conditional rules (@media, @supports) and decorations added before or after text (::before, ::after); whether the book's style or your settings decide is settled by the CSS cascade.
 - **WebP pictures**: Illustrations in WebP format now show.
+- **Video**: Videos embedded in a book show as their cover picture with a play mark; tap to play full screen, and Listen pauses first if it is playing. A kind of HEVC video that Apple's player would play as sound only, with no picture, is fixed on import and plays normally. A video with no cover picture shows the fallback text the book provides.
 
 ### New
 
