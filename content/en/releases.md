@@ -59,6 +59,7 @@ This version reworks how EPUBs are laid out: what a book's stylesheet asks for i
 - Fixed note markers not responding in books that keep their notes on the same page as the text.
 - Fixed books written right to left in horizontal script, such as Arabic and Hebrew, being suggested for Vertical.
 - Fixed the same book being imported twice when sent again over Wi-Fi Transfer.
+- Fixed the Wi-Fi Transfer card running off the screen once many books had arrived, with its top cut off and no way to scroll.
 - Fixed the reading page occasionally not responding to taps, with the menu failing to appear.
 - Fixed a closed book still taking up memory after Search had been used in it.
 - Fixed listening stopping at the end of a chapter instead of moving on to the next while your iPhone was locked or PillowBook was in the background.
