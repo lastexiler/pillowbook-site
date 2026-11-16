@@ -4,18 +4,18 @@ New features and fixes in each version of PillowBook.
 
 ## 1.2
 
-Coming soon
+November 16, 2026
 
 ### Highlights {.highlights}
 
-- **EPUB Layout, Rebuilt**: The layout a book's designer wrote — full-page backgrounds, boxes, headings, text effects, footnotes, lists, vertical text — is now set as close to the original as possible, and stays readable in Night.
+- **Finely Typeset EPUBs**: The layout a book's designer wrote — full-page backgrounds, boxes, headings, text effects, footnotes, lists, vertical text — is now set as close to the original as possible, and stays readable in Night.
 - **Reading Engine Updates Itself**: EPUBs imported before are re-laid out once with the new rules when you open them; your reading position, bookmarks, underlines and notes stay where they were.
 - **Smoother Across Chapters**: The next chapter is laid out ahead of time, so turning into it doesn't wait; Page Curl now curls across chapters too, forwards and back.
 - **Page Numbers Like a Printed Book**: Covers, illustrations and credits pages each count as a page, so the number moves as you turn them; in a two-page spread each page shows its own number.
 
-### EPUB Layout, Rebuilt
+### Finely Typeset EPUBs
 
-This version reworks how EPUBs are laid out: what a book's stylesheet asks for is set as the book intends, while body text still follows your Layout settings for size, line spacing, paragraph spacing and indent; the parts the book designs on its own — headings, poems, quotations, boxes, footnotes — follow the book. The screenshots below are from PillowBook's own style test book.
+PillowBook now supports finely typeset EPUBs: what a book's stylesheet asks for is set as the book intends, while body text still follows your Layout settings for size, line spacing, paragraph spacing and indent; the parts the book designs on its own — headings, poems, quotations, boxes, footnotes — follow the book. The screenshots below are from PillowBook's own style test book.
 
 - **Full-page backgrounds and illustration pages**: Background pictures a book designs for its pages (covering the page, a small repeating texture, a frame stretched to the page edge) appear as designed, including white text on dark backgrounds; a full-page illustration gets a page of its own, with no chapter title or page number over it; a chapter-opening picture set to the page edge now reaches the top of the screen.
   ![White text on a dark background](../assets/releases/1.2/bg-dark.jpg) ![A large picture behind a heading](../assets/releases/1.2/badge.jpg) ![A tag at the page edge](../assets/releases/1.2/tag-bleed.jpg) {.pages}
