@@ -2,6 +2,27 @@
 
 New features and fixes in each version of PillowBook.
 
+## 1.3
+
+Coming soon
+
+### New
+
+- **Folding Contents**: In books with volumes, Contents folds as you scroll — scroll fast and the volumes collapse to one line each, so any volume is a few flicks away; slow down and rest on a volume, and it opens. When you open Contents, the volume you're reading is open.
+
+### Improvements
+
+- **Contents Follow the Book's Own Levels**: An EPUB's Contents are indented the way the book's own table of contents is, and group titles that can't be tapped in the original are kept as groups. Afterwords and closing notes that used to sit under the last volume in some books are back at the top level. Books already imported update when you open them.
+- **Chapters Start Where They Should**: A banner or picture placed just before a chapter's start in an EPUB now belongs to that chapter, instead of trailing the previous chapter on a page of its own.
+- **Contents Open Faster**: In books with many chapters (such as a novel of over three thousand), Contents no longer take seconds to open.
+- **Pictures at the Foot of a Page**: A picture that falls just short of fitting at the foot of a page is now scaled down slightly to stay on that page, instead of moving whole to the next page and separating a heading from its picture.
+
+### Fixes
+
+- Fixed links in EPUBs that point to a chapter's start, a contents page or a heading being taken for notes and opening a note card.
+- Fixed a book's box also framing the text in between when several files are joined into one chapter.
+- Fixed the reading position moving back a chapter after Redetect Chapters and then switching back to the previous way of splitting.
+
 ## 1.2
 
 November 16, 2026
