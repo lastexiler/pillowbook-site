@@ -10,7 +10,10 @@ zh-Hans/  zh-Hant/  en/  ja/
   privacy.html        privacy policy
   support.html        help / FAQ
 content/<lang>/     privacy.md, support.md — the legal drafts (Markdown, one per language)
+                    releases.md — the release notes; testbook.md — the style test book's download page
 assets/style.css, assets/icon.png
+assets/testbook/PillowBook-StyleTest.epub   the public test book (built in the app repository by
+                    tools/make-style-book.py; copy the new file here and change the date on the page)
 tools/build.py        feature-page text + generator; renders the Markdown too
 ```
 

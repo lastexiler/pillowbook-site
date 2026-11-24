@@ -20,7 +20,7 @@ T = {}
 
 T["zh-Hans"] = dict(
     app="枕书", lang_name="简体中文", html_lang="zh-Hans",
-    nav_home="介绍", nav_privacy="隐私政策", nav_support="使用帮助", nav_releases="更新记录",
+    nav_home="介绍", nav_privacy="隐私政策", nav_support="使用帮助", nav_releases="更新记录", nav_testbook="测试用书",
     tagline="一个安静的 txt / EPUB 阅读器，书只在你的手机里。",
     home_intro="枕书是一个人在业余时间写的 iOS 阅读器，支持 iPhone、iPhone Duo 和 iPad。没有账号、没有广告，也没有任何统计或追踪；支持简体、繁體、English、日本語界面，横排与竖排阅读。",
     new_badge="新",
@@ -63,7 +63,7 @@ T["zh-Hans"] = dict(
 
 T["zh-Hant"] = dict(
     app="枕書", lang_name="繁體中文", html_lang="zh-Hant",
-    nav_home="介紹", nav_privacy="隱私權政策", nav_support="使用說明", nav_releases="更新紀錄",
+    nav_home="介紹", nav_privacy="隱私權政策", nav_support="使用說明", nav_releases="更新紀錄", nav_testbook="測試用書",
     tagline="一個安靜的 txt / EPUB 閱讀器，書只在你的手機裡。",
     home_intro="枕書是一個人利用閒暇時間寫的 iOS 閱讀器，支援 iPhone、iPhone Duo 和 iPad。沒有帳號、沒有廣告，也沒有任何統計或追蹤；支援簡體、繁體、English、日本語介面，橫排與直排閱讀。",
     new_badge="新",
@@ -106,7 +106,7 @@ T["zh-Hant"] = dict(
 
 T["en"] = dict(
     app="PillowBook", lang_name="English", html_lang="en",
-    nav_home="About", nav_privacy="Privacy Policy", nav_support="Support", nav_releases="What’s New",
+    nav_home="About", nav_privacy="Privacy Policy", nav_support="Support", nav_releases="What’s New", nav_testbook="Test Book",
     tagline="A quiet txt / EPUB reader. Your books stay on your phone.",
     home_intro="PillowBook is an iOS reader built by one person in their spare time, for iPhone, iPhone Duo and iPad. No accounts, no ads, no analytics or tracking. The interface comes in Simplified Chinese, Traditional Chinese, English and Japanese, and text can be read horizontally or vertically.",
     new_badge="New",
@@ -149,7 +149,7 @@ T["en"] = dict(
 
 T["ja"] = dict(
     app="まくらと本", lang_name="日本語", html_lang="ja",
-    nav_home="紹介", nav_privacy="プライバシーポリシー", nav_support="ヘルプ", nav_releases="アップデート履歴",
+    nav_home="紹介", nav_privacy="プライバシーポリシー", nav_support="ヘルプ", nav_releases="アップデート履歴", nav_testbook="テストブック",
     tagline="静かな txt / EPUB リーダー。本はあなたのスマートフォンの中だけに。",
     home_intro="まくらと本は、ひとりで余暇に作っている iOS の読書アプリで、iPhone・iPhone Duo・iPad に対応しています。アカウントも広告もなく、解析やトラッキングもありません。簡体字・繁体字・英語・日本語の画面、横書きと縦書きに対応しています。",
     new_badge="NEW",
@@ -378,7 +378,8 @@ def page(lang, name, title, body):
     nav = [("index", t["nav_home"])]
     if has_page(lang, "releases"):
         nav.append(("releases", t["nav_releases"]))
-    nav += [("privacy", t["nav_privacy"]), ("support", t["nav_support"])]
+    # The style test book's download page (2026-11-24) has its own tab, last in the row.
+    nav += [("privacy", t["nav_privacy"]), ("support", t["nav_support"]), ("testbook", t["nav_testbook"])]
     pages = " ".join(
         f'<a href="{p}.html"{" class=\"current\"" if p == name else ""}>{label}</a>' for p, label in nav)
     return f"""<!DOCTYPE html>
@@ -426,7 +427,9 @@ def home(lang):
 INLINE = [
     (re.compile(r"\*\*(.+?)\*\*"), r"<strong>\1</strong>"),
     (re.compile(r"`([^`]+)`"), r"<code>\1</code>"),
-    (re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+|[\w.-]+\.html)\)"), r'<a href="\2">\1</a>'),
+    # A link goes to a web address, a mail address, a sibling page, or a file under assets/ (the test book).
+    (re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+|mailto:[^)\s]+|[\w.-]+\.html|\.\./assets/[\w./-]+)\)"),
+     r'<a href="\2">\1</a>'),
 ]
 
 
@@ -541,6 +544,13 @@ def support(lang):
     return from_markdown(lang, "support")
 
 
+def testbook(lang):
+    """The style test book's download page (2026-11-24): what the book is, how to use it, that its explanations are
+    in Chinese, and its copyright notice. The book itself is assets/testbook/PillowBook-StyleTest.epub, built in the
+    app repository by tools/make-style-book.py and copied here."""
+    return from_markdown(lang, "testbook")
+
+
 def release_body(md):
     """A version's groups. A group whose heading ends in {.highlights} is the
     version's headline features: its items ("**name**：sentence") become a
@@ -619,13 +629,14 @@ def redirector(name):
 
 def main():
     built = 0
-    for name in ("privacy", "support"):
+    for name in ("privacy", "support", "testbook"):
         with open(os.path.join(ROOT, f"{name}.html"), "w", encoding="utf-8") as f:
             f.write(redirector(name))
     for lang in LANGS:
         d = os.path.join(ROOT, lang)
         os.makedirs(d, exist_ok=True)
-        for name, fn in (("index", home), ("privacy", privacy), ("support", support), ("releases", releases)):
+        for name, fn in (("index", home), ("privacy", privacy), ("support", support), ("releases", releases),
+                         ("testbook", testbook)):
             if not has_page(lang, name):
                 continue
             with open(os.path.join(d, f"{name}.html"), "w", encoding="utf-8") as f:
@@ -637,7 +648,7 @@ def main():
             built += 1
     with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
         f.write(ROOT_INDEX)
-    print("built", built + 3, "pages")
+    print("built", built + 4, "pages")
 
 
 if __name__ == "__main__":
