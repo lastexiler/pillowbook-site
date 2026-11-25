@@ -41,13 +41,12 @@
 這一版開始支援精排 EPUB：書裡用樣式表寫好的版式，盡量照原書排出來；正文的字級、行距、段距、首行縮排仍然跟隨你的「排版」設定，書裡另外設計的部分（標題、詩、引文、框、註釋）照書。下面的截圖來自枕書自己的樣式測試書。
 
 - **整頁背景圖與插畫頁**：書為頁面設計的背景圖（鋪滿整頁、小紋理平鋪、拉成頁面邊框）照原樣顯示，深色背景上的白字也照書；整頁插畫單獨成頁，插畫頁上不再壓著章名和頁碼；章首鋪到頁邊的插圖直接鋪到螢幕頂端。
-  ![深色背景圖上的白字](../assets/releases/1.2/bg-dark.jpg) ![標題後面的大圖](../assets/releases/1.2/badge.jpg) ![貼著頁邊的標籤](../assets/releases/1.2/tag-bleed.jpg) {.pages}
 - **框**：書裡的框照原樣畫——底色、背景圖、圓角（四個角可以各不相同）、實線／虛線／點線／雙線邊框（四條邊可以各不相同）、寬度與置中、寫了高度的框按高度畫；聊天氣泡、貼文裡套著留言的框、貼著文字寬度的小標籤都能顯示。
-  ![圓角底色框](../assets/releases/1.2/panel-round.jpg) ![聊天氣泡](../assets/releases/1.2/bubbles.jpg) ![框中有框](../assets/releases/1.2/nested.jpg) ![雙線、虛線、單邊粗線](../assets/releases/1.2/borders.jpg) {.pages}
+  ![圓角底色框](../assets/releases/1.2/panel-round.jpg) ![聊天氣泡](../assets/releases/1.2/bubbles.jpg) {.pages}
 - **陰影**：文字陰影和框的陰影（右下投影、框裡的內發光、四周光暈）照書畫。
-  ![文字陰影](../assets/releases/1.2/text-shadow.jpg) ![框的陰影](../assets/releases/1.2/box-shadow.jpg) {.pages}
+  ![文字陰影](../assets/releases/1.2/text-shadow.jpg) {.pages}
 - **句中的底色與邊框、整塊對話框**：一句話裡的幾個字也能有自己的底色、邊框和圓角（如黑底白字的章號、跨幾行的帶框字句）；寫成整塊的對話框放得下就跟在「某某道：」後面，放不下整塊換到下一行，畫成一個完整的圓角框。
-  ![句中的底色與邊框](../assets/releases/1.2/inline-box.jpg) ![對話框](../assets/releases/1.2/inline-block.jpg) {.pages}
+  ![對話框](../assets/releases/1.2/inline-block.jpg) {.pages}
 - **圖片的圓角、邊框與陰影**：書給插圖寫的圓角（包括圓形頭像）、邊框和陰影照畫。
   ![圖片的圓角與邊框](../assets/releases/1.2/picture-frame.jpg) {.pages}
 - **標題與文字**：標題照書裡寫的字級、粗細、顏色排（以前一律按閱讀器的標題樣式）；字級的各種寫法都能讀懂（如 x-large、smaller）；斜體在沒有斜體字形的中日文字體裡自動傾斜，直排也一樣。
@@ -55,7 +54,7 @@
 - **底線、刪除線、著重號**：實線、雙線、點線、虛線、波浪線和顏色都照書；著重號橫排在字的上方，直排在字的右側。
   ![底線與刪除線](../assets/releases/1.2/underline.jpg) ![著重號](../assets/releases/1.2/emphasis.jpg) {.strips}
 - **詩、引文、列表與分隔線**：詩句置中、換行時的懸掛縮排、引文的左右邊距照書；項目符號和編號（數字、字母、羅馬數字）、分隔線都顯示出來。
-  ![詩](../assets/releases/1.2/poem.jpg) ![列表與分隔線](../assets/releases/1.2/lists.jpg) {.pages}
+  ![詩](../assets/releases/1.2/poem.jpg) {.pages}
 - **註釋**：註釋和正文在同一頁的書，點註釋標記也能彈出註釋卡片；多看格式的註釋圖示按一個字高顯示；註釋原文不再夾在正文裡。
   ![註釋標記](../assets/releases/1.2/footnote.jpg) {.strips}
 - **直排**：書裡寫明整本直排的書，匯入時自動打開直排；直排裡的半形括號、引號、破折號等按直排的寫法轉過來；著重號、斜體在直排裡也照樣顯示。

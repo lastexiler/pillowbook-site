@@ -41,13 +41,12 @@
 这一版开始支持精排 EPUB：书里用样式表写好的版式，尽量照原书排出来；正文的字号、行距、段距、首行缩进仍然跟随你的「排版」设置，书里另外设计的部分（标题、诗、引文、框、注释）照书。下面的截图来自枕书自己的样式测试书。
 
 - **整页背景图与插画页**：书为页面设计的背景图（铺满整页、小纹理平铺、拉成页面边框）照原样显示，深色背景上的白字也照书；整页插画单独成页，插画页上不再压着章名和页码；章首铺到页边的插图直接铺到屏幕顶端。
-  ![深色背景图上的白字](../assets/releases/1.2/bg-dark.jpg) ![标题后面的大图](../assets/releases/1.2/badge.jpg) ![贴着页边的标签](../assets/releases/1.2/tag-bleed.jpg) {.pages}
 - **框**：书里的框照原样画——底色、背景图、圆角（四个角可以各不相同）、实线 / 虚线 / 点线 / 双线边框（四条边可以各不相同）、宽度与居中、写了高度的框按高度画；聊天气泡、帖子里套着评论的框、贴着文字宽度的小标签都能显示。
-  ![圆角底色框](../assets/releases/1.2/panel-round.jpg) ![聊天气泡](../assets/releases/1.2/bubbles.jpg) ![框套框](../assets/releases/1.2/nested.jpg) ![双线、虚线、单边粗线](../assets/releases/1.2/borders.jpg) {.pages}
+  ![圆角底色框](../assets/releases/1.2/panel-round.jpg) ![聊天气泡](../assets/releases/1.2/bubbles.jpg) {.pages}
 - **阴影**：文字阴影和框的阴影（右下投影、框里的内发光、四周光晕）照书画。
-  ![文字阴影](../assets/releases/1.2/text-shadow.jpg) ![框的阴影](../assets/releases/1.2/box-shadow.jpg) {.pages}
+  ![文字阴影](../assets/releases/1.2/text-shadow.jpg) {.pages}
 - **句中的底色与边框、整块对话框**：一句话里的几个字也能有自己的底色、边框和圆角（如黑底白字的章号、跨几行的带框字句）；写成整块的对话框放得下就跟在「某某道：」后面，放不下整块换到下一行，画成一个完整的圆角框。
-  ![句中的底色与边框](../assets/releases/1.2/inline-box.jpg) ![对话框](../assets/releases/1.2/inline-block.jpg) {.pages}
+  ![对话框](../assets/releases/1.2/inline-block.jpg) {.pages}
 - **图片的圆角、边框与阴影**：书给插图写的圆角（包括圆形头像）、边框和阴影照画。
   ![图片的圆角与边框](../assets/releases/1.2/picture-frame.jpg) {.pages}
 - **标题与文字**：标题照书里写的字号、粗细、颜色排（以前一律按阅读器的标题样式）；字号的各种写法都能读懂（如 x-large、smaller）；斜体在没有斜体字形的中日文字体里自动倾斜，竖排也一样。
@@ -55,7 +54,7 @@
 - **下划线、删除线、着重号**：实线、双线、点线、虚线、波浪线和颜色都照书；着重号横排在字的上方，竖排在字的右侧。
   ![下划线与删除线](../assets/releases/1.2/underline.jpg) ![着重号](../assets/releases/1.2/emphasis.jpg) {.strips}
 - **诗、引文、列表与分隔线**：诗句居中、转行时的悬挂缩进、引文的左右边距照书；项目符号和编号（数字、字母、罗马数字）、分隔线都显示出来。
-  ![诗](../assets/releases/1.2/poem.jpg) ![列表与分隔线](../assets/releases/1.2/lists.jpg) {.pages}
+  ![诗](../assets/releases/1.2/poem.jpg) {.pages}
 - **脚注**：注释和正文在同一页的书，点注释标记也能弹出注释卡片；多看格式的注释图标按一个字高显示；注释原文不再夹在正文里。
   ![注释标记](../assets/releases/1.2/footnote.jpg) {.strips}
 - **竖排**：书里写明整本竖排的书，导入时自动打开竖排；竖排里的半角括号、引号、破折号等按竖排的写法转过来；着重号、斜体在竖排里也照样显示。
