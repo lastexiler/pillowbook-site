@@ -6,6 +6,11 @@ New features and fixes in each version of PillowBook.
 
 Coming soon
 
+### Highlights {.highlights}
+
+- **A 3D book under Recently Read**: At the top of Library, the book you read last is now a 3D book wearing its own cover, as thick as the book is long — in Paperback, Vintage or Hardcover.
+- **Folding Contents**: In long books with volumes, scroll Contents fast and the volumes collapse to one line each; rest on a volume and it opens, so any volume is a few flicks away.
+
 ### New
 
 - **Folding Contents**: In books with volumes, Contents folds as you scroll — scroll fast and the volumes collapse to one line each, so any volume is a few flicks away; slow down and rest on a volume, and it opens. When you open Contents, the volume you're reading is open.
