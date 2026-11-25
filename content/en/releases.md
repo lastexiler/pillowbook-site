@@ -9,6 +9,8 @@ Coming soon
 ### New
 
 - **Folding Contents**: In books with volumes, Contents folds as you scroll — scroll fast and the volumes collapse to one line each, so any volume is a few flicks away; slow down and rest on a volume, and it opens. When you open Contents, the volume you're reading is open.
+- **A 3D book under Recently Read**: Recently Read at the top of Library is now a set of cards you swipe left and right. The first card is the book you read last, shown as a 3D book wearing its own cover and as thick as the book is long; swipe once more for the other books you are reading.
+- **Book Style**: Library in Settings has a new Book Style option: the 3D book comes as Paperback, Vintage or Hardcover.
 
 ### Improvements
 
