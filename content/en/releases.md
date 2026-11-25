@@ -17,6 +17,7 @@ Coming soon
 - **Contents Follow the Book's Own Levels**: An EPUB's Contents are indented the way the book's own table of contents is, and group titles that can't be tapped in the original are kept as groups. Afterwords and closing notes that used to sit under the last volume in some books are back at the top level. Books already imported update when you open them.
 - **Chapters Start Where They Should**: A banner or picture placed just before a chapter's start in an EPUB now belongs to that chapter, instead of trailing the previous chapter on a page of its own.
 - **Contents Open Faster**: In books with many chapters (such as a novel of over three thousand), Contents no longer take seconds to open.
+- **Smoother Library Scrolling**: Scrolling up and down in Library is smoother and no longer stutters when many covers are on screen, most noticeably on older iPhones.
 - **Pictures at the Foot of a Page**: A picture that falls just short of fitting at the foot of a page is now scaled down slightly to stay on that page, instead of moving whole to the next page and separating a heading from its picture.
 
 ### Fixes
