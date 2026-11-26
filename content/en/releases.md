@@ -6,8 +6,7 @@ New features and fixes in each version of PillowBook.
 
 Coming soon
 
-**Good news**: The free library now holds 15 books, up from 5. It takes effect as soon as you update to 1.3; there is nothing you need to do. {.notice}
-
+**Good news**: The free library now holds 15 books, up from 5 | It takes effect as soon as you update to 1.3; there is nothing you need to do. {.notice}
 ### Highlights {.highlights}
 
 - **A 3D book under Recently Read**: At the top of Library, the book you read last is now a 3D book wearing its own cover, as thick as the book is long — in Paperback, Vintage or Hardcover.

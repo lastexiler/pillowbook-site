@@ -10,7 +10,7 @@ Everything here describes what the app actually does. When the app changes
 here and rebuild — the privacy page in particular must never promise less
 than the app does.
 """
-import os, re, html, json
+import os, re, html, json, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ["zh-Hans", "zh-Hant", "en", "ja"]
@@ -553,12 +553,24 @@ def testbook(lang):
 
 NOTICE = re.compile(r"^(?!#)(.+?)\s*\{\.notice\}\s*$", re.M)
 
+# The megaphone in a notice's badge: drawn here, so the strip needs no picture file and takes the badge's colour.
+HORN = ('<svg class="notice-horn" viewBox="0 0 24 24" aria-hidden="true">'
+        '<path fill="currentColor" d="M3.6 9.300h3.300l7.500-4.300c.9-.5 1.900.1 1.900 1.100v11.800c0 1-1 1.600-1.900 1.100l-7.500-4.300H3.600'
+        'c-.7 0-1.200-.5-1.200-1.200v-4c0-.7.5-1.200 1.200-1.200z"/>'
+        '<path fill="currentColor" d="M5.600 15.800h3.300l1 3.600c.2.800-.4 1.500-1.200 1.500h-.9c-.6 0-1.100-.4-1.200-.9z"/>'
+        '<path fill="none" stroke="currentColor" stroke-width="1.900" stroke-linecap="round" '
+        'd="M18.900 9.200a4 4 0 0 1 0 5.600M21 6.900a7.200 7.200 0 0 1 0 10.200"/></svg>')
+
 
 def notice(line):
-    """A line ending in {.notice} ("**label**：sentence {.notice}"): news that is not a feature (2026-11-26: the free
-    library going from 5 books to 15) — one strip with the label as a small tag, wherever the line stands."""
+    """A line ending in {.notice} ("**label**：headline | detail {.notice}"): news that is not a feature (2026-11-26:
+    the free library going from 5 books to 15) — a raised strip of its own wherever the line stands, a megaphone
+    in a round badge, the label and the headline in bold, the detail (optional, after " | ") smaller under them."""
     name, text = re.match(r"\*\*(.+?)\*\*[：:]?\s*(.*)", line).groups()
-    return f'<p class="notice"><span class="notice-tag">{inline(name)}</span><span>{inline(text)}</span></p>'
+    headline, _, detail = (part.strip() for part in text.partition(" | "))
+    sub = f'<p class="notice-sub">{inline(detail)}</p>' if detail else ""
+    return (f'<div class="notice"><span class="notice-badge">{HORN}</span><div>'
+            f'<p class="notice-head"><em>{inline(name)}</em>{inline(headline)}</p>{sub}</div></div>')
 
 
 def release_body(md):
@@ -645,11 +657,20 @@ def redirector(name):
         .replace('<a href="zh-Hans/index.html">简体中文</a> · <a href="zh-Hant/index.html">繁體中文</a> · <a href="en/index.html">English</a> · <a href="ja/index.html">日本語</a>', links)
 
 
+def write_page(path, text):
+    """Every page goes out through here, with the stylesheet's address carrying a version taken from its contents
+    (`style.css?v=…`). Without it a reader whose browser still holds the old stylesheet sees a new page laid out
+    by old rules (2026-11-26: the first notice strip came out as a bare line of text until the cache ran out)."""
+    with open(os.path.join(ROOT, "assets", "style.css"), "rb") as f:
+        version = hashlib.sha1(f.read()).hexdigest()[:8]
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(text.replace('assets/style.css"', f'assets/style.css?v={version}"'))
+
+
 def main():
     built = 0
     for name in ("privacy", "support", "testbook"):
-        with open(os.path.join(ROOT, f"{name}.html"), "w", encoding="utf-8") as f:
-            f.write(redirector(name))
+        write_page(os.path.join(ROOT, f"{name}.html"), redirector(name))
     for lang in LANGS:
         d = os.path.join(ROOT, lang)
         os.makedirs(d, exist_ok=True)
@@ -657,15 +678,12 @@ def main():
                          ("testbook", testbook)):
             if not has_page(lang, name):
                 continue
-            with open(os.path.join(d, f"{name}.html"), "w", encoding="utf-8") as f:
-                f.write(fn(lang))
+            write_page(os.path.join(d, f"{name}.html"), fn(lang))
             built += 1
         for kind in ("invite", "receipt") if lang in CODE_PAGES else ():
-            with open(os.path.join(d, f"{kind}.html"), "w", encoding="utf-8") as f:
-                f.write(code_page(lang, kind))
+            write_page(os.path.join(d, f"{kind}.html"), code_page(lang, kind))
             built += 1
-    with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
-        f.write(ROOT_INDEX)
+    write_page(os.path.join(ROOT, "index.html"), ROOT_INDEX)
     print("built", built + 4, "pages")
 
 
