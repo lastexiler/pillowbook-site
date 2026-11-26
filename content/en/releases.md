@@ -17,6 +17,7 @@ Coming soon
 - **Folding Contents**: In books with volumes, Contents folds as you scroll — scroll fast and the volumes collapse to one line each, so any volume is a few flicks away; slow down and rest on a volume, and it opens. When you open Contents, the volume you're reading is open.
 - **A 3D book under Recently Read**: Recently Read at the top of Library is now a set of cards you swipe left and right. The first card is the book you read last, shown as a 3D book wearing its own cover and as thick as the book is long; swipe once more for the other books you are reading.
 - **Book Style**: Library in Settings has a new Book Style option: the 3D book comes as Paperback, Vintage or Hardcover.
+- **Long-Press a Picture to View It Full Screen**: Press and hold a picture in a book — an illustration, a frontispiece, a full-page plate — to open it full screen: pinch to zoom, drag once zoomed in, double-tap to zoom in, and tap the button at the top left to turn it 90° clockwise; close it at the top right. While you hold, a border fills in around the picture, and you feel a light tap as it opens. At night the picture is shown as it is, not dimmed.
 
 ### Improvements
 
