@@ -551,15 +551,33 @@ def testbook(lang):
     return from_markdown(lang, "testbook")
 
 
+NOTICE = re.compile(r"^(?!#)(.+?)\s*\{\.notice\}\s*$", re.M)
+
+
+def notice(line):
+    """A line ending in {.notice} ("**label**：sentence {.notice}"): news that is not a feature (2026-11-26: the free
+    library going from 5 books to 15) — one strip with the label as a small tag, wherever the line stands."""
+    name, text = re.match(r"\*\*(.+?)\*\*[：:]?\s*(.*)", line).groups()
+    return f'<p class="notice"><span class="notice-tag">{inline(name)}</span><span>{inline(text)}</span></p>'
+
+
 def release_body(md):
     """A version's groups. A group whose heading ends in {.highlights} is the
     version's headline features: its items ("**name**：sentence") become a
-    grid of small cards above the full lists instead of a bulleted list."""
+    grid of small cards above the full lists instead of a bulleted list.
+    A line ending in {.notice} becomes a strip of its own (`notice`)."""
     out = []
     for group in re.split(r"^(?=###\s)", md, flags=re.M):
         m = re.match(r"^###\s+(.*?)\s*\{\.highlights\}\s*\n", group)
         if not m:
-            out.append(markdown(group))
+            at = 0
+            for found in NOTICE.finditer(group):
+                if group[at:found.start()].strip():
+                    out.append(markdown(group[at:found.start()]))
+                out.append(notice(found.group(1)))
+                at = found.end()
+            if at == 0 or group[at:].strip():
+                out.append(markdown(group[at:]))
             continue
         cards = []
         for item in re.findall(r"^-\s+(.*)$", group[m.end():], flags=re.M):
