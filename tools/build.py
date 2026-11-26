@@ -57,7 +57,7 @@ T["zh-Hans"] = dict(
         ]),
     ],
     home_purchases_h="内购",
-    home_purchases="免费版书库最多放 5 本。「书库无上限」是一次性购买，永久有效，同一 Apple 账户的设备都可使用。「请开发者喝杯咖啡」是打赏，可重复，不解锁任何功能。购买都由 App Store 处理。",
+    home_purchases="免费版书库最多放 15 本。「书库无上限」是一次性购买，永久有效，同一 Apple 账户的设备都可使用。「请开发者喝杯咖啡」是打赏，可重复，不解锁任何功能。购买都由 App Store 处理。",
     footer="枕书 · 由 Vincent 独立开发",
 )
 
@@ -100,7 +100,7 @@ T["zh-Hant"] = dict(
         ]),
     ],
     home_purchases_h="內購",
-    home_purchases="免費版書庫最多放 5 本。「書庫無上限」是一次性購買，永久有效，同一 Apple 帳戶的裝置都可使用。「請開發者喝杯咖啡」是打賞，可重複，不解鎖任何功能。購買都由 App Store 處理。",
+    home_purchases="免費版書庫最多放 15 本。「書庫無上限」是一次性購買，永久有效，同一 Apple 帳戶的裝置都可使用。「請開發者喝杯咖啡」是打賞，可重複，不解鎖任何功能。購買都由 App Store 處理。",
     footer="枕書 · 由 Vincent 獨立開發",
 )
 
@@ -143,7 +143,7 @@ T["en"] = dict(
         ]),
     ],
     home_purchases_h="In-app purchases",
-    home_purchases="The free library holds 5 books. “Unlimited Library” is a one-time purchase that lasts forever and works on every device signed in to the same Apple Account. “Buy the Developer a Coffee” is a tip: repeatable, and it unlocks nothing. All purchases are handled by the App Store.",
+    home_purchases="The free library holds 15 books. “Unlimited Library” is a one-time purchase that lasts forever and works on every device signed in to the same Apple Account. “Buy the Developer a Coffee” is a tip: repeatable, and it unlocks nothing. All purchases are handled by the App Store.",
     footer="PillowBook · made independently by Vincent",
 )
 
@@ -186,7 +186,7 @@ T["ja"] = dict(
         ]),
     ],
     home_purchases_h="アプリ内課金",
-    home_purchases="無料版の本棚には 5 冊まで入ります。「本棚無制限」は一度きりの購入で永久に有効、同じ Apple アカウントの端末すべてで使えます。「コーヒー一杯分の応援」は応援で、何度でも可能、機能の解除はありません。購入はすべて App Store が処理します。",
+    home_purchases="無料版の本棚には 15 冊まで入ります。「本棚無制限」は一度きりの購入で永久に有効、同じ Apple アカウントの端末すべてで使えます。「コーヒー一杯分の応援」は応援で、何度でも可能、機能の解除はありません。購入はすべて App Store が処理します。",
     footer="まくらと本 · Vincent が個人で開発",
 )
 

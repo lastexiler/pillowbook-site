@@ -68,7 +68,7 @@ This book’s files on the device are missing or damaged, and there is no kept o
 
 ### The library is full
 
-The free version holds up to five books. Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase. You can also invite friends from Settings › Me, for up to 30 more books.
+The free version holds up to 15 books (from version 1.3; versions 1.2 and earlier hold five, and updating raises the limit automatically). Archived books and books in the Vault also count. Delete a book before importing another, or make the one-time Unlimited Library purchase. You can also invite friends from Settings › Me, for up to 30 more books.
 
 ## Common reading questions
 
@@ -116,7 +116,7 @@ In the library, press and hold a book → “Change Cover”, tap “+” in the
 
 Apple’s App Store processes all purchases. Apple and your App Store region determine price, taxes, payment, billing, and refunds.
 
-- **Unlimited Library** is a non-consumable, one-time purchase that removes the five-book limit. On a device using the same Apple Account, select Restore Purchase in the App.
+- **Unlimited Library** is a non-consumable, one-time purchase that removes the 15-book limit. On a device using the same Apple Account, select Restore Purchase in the App.
 - **One Coffee** is an optional, repeatable tip. It unlocks no feature or content. As a consumable, it cannot be restored. The displayed tip count is stored only on the current device and may disappear after reinstalling the App or changing devices.
 - **Redeem Code** uses Apple’s Offer Code interface. Apple verifies whether a code is valid and what entitlement it grants.
 
