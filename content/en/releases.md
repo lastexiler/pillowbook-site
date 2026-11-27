@@ -20,6 +20,7 @@ Coming soon
 - **Book Style**: Library in Settings has a new Book Style option: the 3D book comes as Paperback, Vintage or Hardcover.
 - **Long-Press a Picture to View It Full Screen**: Press and hold a picture in a book — an illustration, a frontispiece, a full-page plate — to open it full screen: pinch to zoom, drag once zoomed in, double-tap to zoom in, and tap the button at the top left to turn it 90° clockwise; close it at the top right. While you hold, a border fills in around the picture, and you feel a light tap as it opens. At night the picture is shown as it is, not dimmed.
 - **Turn Speed**: Page Turning under Layout has a new Turn Speed slider. Set how fast the Page Turn and Page Curl animations run: faster to the left, slower to the right.
+- **Show System Status Bar**: Reading Habits in Reading Settings has a new Show System Status Bar switch. Turn it off and the system's clock, signal and battery no longer show while you read, so they stop covering a frontispiece or chapter picture that runs to the top of the screen; on iPad, the page also takes the strip the bar used. It is on by default.
 
 ### Improvements
 
