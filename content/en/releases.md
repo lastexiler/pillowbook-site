@@ -11,6 +11,7 @@ Coming soon
 
 - **A 3D book under Recently Read**: At the top of Library, the book you read last is now a 3D book wearing its own cover, as thick as the book is long — in Paperback, Vintage or Hardcover.
 - **Folding Contents**: In long books with volumes, scroll Contents fast and the volumes collapse to one line each; rest on a volume and it opens, so any volume is a few flicks away.
+- **Page Turning, Rebuilt and Faster**: Page turning has been rebuilt from the ground up — the page moves the moment you tap, and you can now set how fast it turns.
 
 ### New
 
@@ -18,9 +19,12 @@ Coming soon
 - **A 3D book under Recently Read**: Recently Read at the top of Library is now a set of cards you swipe left and right. The first card is the book you read last, shown as a 3D book wearing its own cover and as thick as the book is long; swipe once more for the other books you are reading.
 - **Book Style**: Library in Settings has a new Book Style option: the 3D book comes as Paperback, Vintage or Hardcover.
 - **Long-Press a Picture to View It Full Screen**: Press and hold a picture in a book — an illustration, a frontispiece, a full-page plate — to open it full screen: pinch to zoom, drag once zoomed in, double-tap to zoom in, and tap the button at the top left to turn it 90° clockwise; close it at the top right. While you hold, a border fills in around the picture, and you feel a light tap as it opens. At night the picture is shown as it is, not dimmed.
+- **Turn Speed**: Page Turning under Layout has a new Turn Speed slider. Set how fast the Page Turn and Page Curl animations run: faster to the left, slower to the right.
 
 ### Improvements
 
+- **Page Turning Rebuilt from the Ground Up**: The way pages turn has been rewritten. The wait between your tap and the page starting to move is about a third of what it was, most noticeably on older iPhones, and turning many pages in a row no longer stutters. Reading also uses less memory, so long sessions stay steady. Your reading progress is saved automatically, as before.
+- **Smoother Auto Page Turn in Scroll**: With Auto Page Turn on in Scroll, the page now moves forward continuously instead of in small jumps.
 - **Contents Follow the Book's Own Levels**: An EPUB's Contents are indented the way the book's own table of contents is, and group titles that can't be tapped in the original are kept as groups. Afterwords and closing notes that used to sit under the last volume in some books are back at the top level. Books already imported update when you open them.
 - **Chapters Start Where They Should**: A banner or picture placed just before a chapter's start in an EPUB now belongs to that chapter, instead of trailing the previous chapter on a page of its own.
 - **Contents Open Faster**: In books with many chapters (such as a novel of over three thousand), Contents no longer take seconds to open.
